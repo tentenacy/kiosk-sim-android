@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tenutz.kiosksim.databinding.FragmentOrderBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
+import com.tenutz.kiosksim.ui.order.bs.ShoppingBagBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,9 +33,13 @@ class OrderFragment: BaseFragment() {
     }
 
     private fun setOnClickListeners() {
-//        binding.constraintMainOrderContainer.setOnClickListener {
-//            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToAccessFragment())
-//        }
+        binding.fabOrderShoppingBag.setOnClickListener {
+            ShoppingBagBottomSheetDialog(
+                onClickListener = { id, _ ->
+
+                }
+            ).show(childFragmentManager, "shopping bag_dialog")
+        }
     }
 
     override fun onDestroyView() {

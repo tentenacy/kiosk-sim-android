@@ -6,8 +6,8 @@
             <solid
                 android:color="@color/white" />
             <corners
-                android:topLeftRadius="20dp"
-                android:topRightRadius="20dp" />
+                android:topLeftRadius="28dp"
+                android:topRightRadius="28dp" />
         </shape>
     </item>
 </layer-list>

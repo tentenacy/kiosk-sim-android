@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_bsshopping_bag_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingHorizontal="20dp"
+			android:paddingVertical="10dp">
+
+
+		<ImageView
+				android:id="@+id/image_bsshopping_bag_thumbnail"
+				android:layout_width="80dp"
+				android:layout_height="80dp"
+				android:background="@drawable/placeholder_logo"
+				android:contentDescription="메뉴 썸네일"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_bsshopping_bag_name"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="아메리카노"
+				android:textSize="16sp"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_bsshopping_bag_options"
+				style="@style/Text"
+				android:layout_marginTop="4dp"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="HOT/ICE 선택 : ICE\n시럽 추가 선택 : 샷 추가(500원), 펄 2배 추가 (4,000원)\n얼음 변경 추가선택 : 얼음없이 (2,000원)\n메뉴 단가(할인가 포함) : 1,000원"
+				android:textSize="12sp"
+				android:textColor="@color/rect_4480"
+				android:layout_marginEnd="6dp"
+				app:layout_constraintEnd_toStartOf="@id/image_bsshopping_bag_thumbnail"
+				app:layout_constraintTop_toBottomOf="@id/text_bsshopping_bag_name"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_bsshopping_bag_not_discounted_amount"
+				style="@style/BoldText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingStart="1dp"
+				tools:textColor="@color/rect_4474"
+				android:textColor="@color/rect_4474"
+				android:textSize="16sp"
+				android:text="1,000"
+				android:layout_marginTop="4dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/text_bsshopping_bag_options"
+				tools:ignore="RtlSymmetry"
+				tools:text="1,000" />
+
+		<!--            android:textColor="@{args.outOfStock ? @color/rect_4480 : @color/rect_4474}"-->
+
+		<TextView
+				android:id="@+id/text_bsshopping_bag_not_discounted_unit_kr"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="20dp"
+				android:paddingEnd="1dp"
+				android:text="원"
+				android:textSize="16sp"
+				tools:textColor="@color/rect_4474"
+				android:textColor="@color/rect_4474"
+				app:layout_constraintBottom_toBottomOf="@id/text_bsshopping_bag_not_discounted_amount"
+				app:layout_constraintStart_toEndOf="@id/text_bsshopping_bag_not_discounted_amount"
+				app:layout_constraintTop_toTopOf="@id/text_bsshopping_bag_not_discounted_amount"
+				tools:ignore="HardcodedText,RtlSymmetry" />
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/constraint_bsshopping_bag_quantity_container"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="6dp"
+				android:background="@drawable/radius_8dp_border"
+				app:layout_constraintTop_toBottomOf="@id/image_bsshopping_bag_thumbnail"
+				app:layout_constraintStart_toStartOf="@id/image_bsshopping_bag_thumbnail"
+				app:layout_constraintEnd_toEndOf="@id/image_bsshopping_bag_thumbnail">
+
+			<ImageView
+					android:id="@+id/image_bsshopping_bag_one_less"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@drawable/ic_trash"
+					android:contentDescription="수량 하나 빼기"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					tools:ignore="HardcodedText" />
+
+			<TextView
+					android:id="@+id/text_bsshopping_bag_quantity"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingStart="1dp"
+					tools:textColor="@color/rect_4474"
+					android:textColor="@color/rect_4474"
+					android:textSize="14sp"
+					android:text="1"
+					android:maxLength="3"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					tools:ignore="HardcodedText,RtlSymmetry"
+					tools:text="100" />
+
+			<ImageView
+					android:id="@+id/image_bsshopping_bag_one_more"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@drawable/ic_plus"
+					android:contentDescription="수량 하나 더하기"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					tools:ignore="HardcodedText" />
+
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

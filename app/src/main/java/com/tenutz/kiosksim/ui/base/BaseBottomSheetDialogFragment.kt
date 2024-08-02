@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.google.android.material.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -28,6 +30,17 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewDataBinding>(private val l
         binding.lifecycleOwner = this
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        expandFullHeight()
+    }
+
+    private fun expandFullHeight() {
+        BottomSheetBehavior.from(dialog?.findViewById(R.id.design_bottom_sheet)!!).state =
+            BottomSheetBehavior.STATE_EXPANDED
     }
 
     override fun onDestroyView() {
