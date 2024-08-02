@@ -1,17 +1,19 @@
-package com.tenutz.kiosksim.ui.access
+package com.tenutz.kiosksim.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.tenutz.kiosksim.databinding.FragmentAccessBinding
+import com.tenutz.kiosksim.databinding.FragmentMainBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class AccessFragment : BaseFragment() {
+@AndroidEntryPoint
+class MainFragment : BaseFragment() {
 
-    private var _binding: FragmentAccessBinding? = null
-    val binding: FragmentAccessBinding get() = _binding!!
+    private var _binding: FragmentMainBinding? = null
+    val binding: FragmentMainBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,7 +21,7 @@ class AccessFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentAccessBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -27,12 +29,12 @@ class AccessFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setOnCLickListeners()
+        setOnClickListeners()
     }
 
-    private fun setOnCLickListeners() {
-        binding.btnAccess.setOnClickListener {
-            findNavController().navigate(AccessFragmentDirections.actionAccessFragmentToMainFragment())
+    private fun setOnClickListeners() {
+        binding.constraintMainOrderContainer.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToOrderFragment())
         }
     }
 

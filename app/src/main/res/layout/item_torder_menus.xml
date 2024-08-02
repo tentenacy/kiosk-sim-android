@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		>
+
+	<androidx.cardview.widget.CardView
+			android:id="@+id/card_itorder_menus"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="20dp"
+			android:layout_marginVertical="10dp"
+			app:cardElevation="0dp"
+			app:cardCornerRadius="16dp">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/constraint_itorder_menus_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+			<!--            bind:showImage="@{args.imageUrl}"-->
+
+			<ImageView
+					android:id="@+id/image_itorder_menus_thumbnail"
+					android:layout_width="80dp"
+					android:layout_height="80dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="16dp"
+					android:background="@drawable/placeholder_logo"
+					android:contentDescription="메뉴 썸네일"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					tools:ignore="HardcodedText" />
+
+			<!--            android:textColor="@{args.outOfStock ? @color/rect_4480 : @color/rect_4474}"-->
+			<!--            android:text="@{args.menuName}"-->
+
+			<TextView
+					android:id="@+id/text_itorder_menus_name"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:layout_marginEnd="20dp"
+					android:ellipsize="end"
+					android:fontFamily="@font/suit_regular"
+					android:maxLines="1"
+					android:textColor="@color/rect_4474"
+					android:textSize="16sp"
+					android:text="에스프레소"
+					app:layout_constraintVertical_chainStyle="packed"
+					android:layout_marginBottom="4dp"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintBottom_toTopOf="@id/text_itorder_menus_not_discounted_unit_kr"
+					tools:text="에스프레소"
+					tools:textColor="@color/rect_4474" />
+
+			<!--            android:visibility="@{args.outOfStock ? View.VISIBLE : View.INVISIBLE}"-->
+
+			<TextView
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="4dp"
+					android:background="@drawable/radius_8dp"
+					android:backgroundTint="@color/rect_4490"
+					android:paddingHorizontal="6dp"
+					android:paddingVertical="2dp"
+					android:text="인기"
+					android:textColor="@color/rect_4491"
+					android:textSize="12sp"
+					android:visibility="visible"
+					app:layout_constraintBottom_toBottomOf="@id/text_itorder_menus_name"
+					app:layout_constraintEnd_toStartOf="@id/text_itorder_menus_name"
+					app:layout_constraintTop_toTopOf="@id/text_itorder_menus_name"
+					tools:ignore="HardcodedText" />
+
+			<!--            android:textColor="@{args.outOfStock ? @color/rect_4480 : @color/rect_4474}"-->
+			<!--            android:text="@{TextExtKt.getToCurrency(args.price)}"-->
+
+			<TextView
+					android:id="@+id/text_itorder_menus_not_discounted_amount"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:fontFamily="@font/suit_bold"
+					android:paddingStart="1dp"
+					tools:textColor="@color/rect_4474"
+					android:textColor="@color/rect_4474"
+					android:textSize="16sp"
+					android:text="1,000"
+					app:layout_constraintBottom_toBottomOf="@id/text_itorder_menus_not_discounted_unit_kr"
+					app:layout_constraintEnd_toStartOf="@id/text_itorder_menus_not_discounted_unit_kr"
+					app:layout_constraintTop_toTopOf="@id/text_itorder_menus_not_discounted_unit_kr"
+					tools:ignore="RtlSymmetry"
+					tools:text="1,000" />
+
+			<!--            android:textColor="@{args.outOfStock ? @color/rect_4480 : @color/rect_4474}"-->
+
+			<TextView
+					android:id="@+id/text_itorder_menus_not_discounted_unit_kr"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="2dp"
+					android:layout_marginEnd="20dp"
+					android:fontFamily="@font/suit_regular"
+					android:paddingEnd="1dp"
+					android:text="원"
+					android:textSize="16sp"
+					tools:textColor="@color/rect_4474"
+					android:textColor="@color/rect_4474"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/text_itorder_menus_name"
+					tools:ignore="HardcodedText,RtlSymmetry" />
+
+			<!--            android:text="@{TextExtKt.getToCurrency(args.price)}"-->
+			<!--            android:visibility="@{args.discountingPrice != 0 ? View.VISIBLE : View.INVISIBLE}"-->
+
+			<TextView
+					android:id="@+id/text_imain_menus_origin_amount"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:fontFamily="@font/suit_bold"
+					android:foreground="@drawable/striking_text"
+					android:paddingStart="1dp"
+					android:textColor="@color/rect_4480"
+					android:textSize="12sp"
+					android:text="2,000"
+					android:visibility="visible"
+					tools:textColor="@color/rect_4480"
+					app:layout_constraintBottom_toBottomOf="@id/text_imain_menus_unit_kr_1"
+					app:layout_constraintEnd_toStartOf="@id/text_imain_menus_unit_kr_1"
+					app:layout_constraintTop_toTopOf="@id/text_imain_menus_unit_kr_1"
+					tools:ignore="RtlSymmetry"
+					tools:text="2,000" />
+
+			<!--android:visibility="@{args.discountingPrice != 0 ? View.VISIBLE : View.INVISIBLE}"-->
+
+			<TextView
+					android:id="@+id/text_imain_menus_unit_kr_1"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:foreground="@drawable/striking_text"
+					android:paddingEnd="1dp"
+					android:text="원"
+					android:textColor="@color/rect_4480"
+					android:textSize="12sp"
+					android:visibility="visible"
+					app:layout_constraintBottom_toBottomOf="@id/text_itorder_menus_not_discounted_amount"
+					app:layout_constraintEnd_toStartOf="@id/text_itorder_menus_not_discounted_amount"
+					app:layout_constraintVertical_chainStyle="packed"
+					tools:ignore="HardcodedText,RtlSymmetry" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.cardview.widget.CardView>
+
+</layout>

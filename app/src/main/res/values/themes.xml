@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="Theme.KioskSim" parent="Base.Theme.KioskSim" />
