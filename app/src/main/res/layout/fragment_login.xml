@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_login_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/image_login_logo"
+            android:layout_width="100dp"
+            android:layout_height="120.11dp"
+            android:src="@drawable/logo_splash"
+            app:layout_constraintVertical_bias="0.4756"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/view_login_divider1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/view_login_divider1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/rect_4482"
+            app:layout_constraintTop_toTopOf="@id/text_login_label_sns_login"
+            app:layout_constraintBottom_toBottomOf="@id/text_login_label_sns_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.5475" />
+
+        <TextView
+            android:id="@+id/text_login_label_sns_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fontFamily="@font/suit_regular"
+            android:paddingHorizontal="10dp"
+            android:text='@{@string/app_name+" 시작하기"}'
+            android:textColor="@color/rect_4480"
+            android:textSize="12sp"
+            style="@style/Text"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/image_login_kakao"
+            app:layout_constraintEnd_toEndOf="@id/view_login_divider1"
+            app:layout_constraintStart_toStartOf="@id/view_login_divider1"
+            tools:text="키오스크Sim 시작하기"
+            tools:ignore="HardcodedText,TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/image_login_kakao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="카카오 로그인"
+            android:src="@drawable/ic_kakao"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_login_google"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/view_login_divider1"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/image_login_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:contentDescription="구글 로그인"
+            android:src="@drawable/ic_google"
+            app:layout_constraintBottom_toBottomOf="@id/image_login_kakao"
+            app:layout_constraintEnd_toStartOf="@id/image_login_facebook"
+            app:layout_constraintStart_toEndOf="@+id/image_login_kakao"
+            app:layout_constraintTop_toTopOf="@id/image_login_kakao"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/image_login_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:contentDescription="페이스북 로그인"
+            android:src="@drawable/ic_facebook"
+            app:layout_constraintBottom_toBottomOf="@id/image_login_google"
+            app:layout_constraintEnd_toStartOf="@id/image_login_naver"
+            app:layout_constraintStart_toEndOf="@+id/image_login_google"
+            app:layout_constraintTop_toTopOf="@id/image_login_google"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/image_login_naver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:contentDescription="네이버 로그인"
+            android:src="@drawable/ic_naver"
+            app:layout_constraintBottom_toBottomOf="@id/image_login_facebook"
+            app:layout_constraintEnd_toEndOf="@id/view_login_divider1"
+            app:layout_constraintStart_toEndOf="@+id/image_login_facebook"
+            app:layout_constraintTop_toTopOf="@id/image_login_facebook"
+            tools:ignore="HardcodedText" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
