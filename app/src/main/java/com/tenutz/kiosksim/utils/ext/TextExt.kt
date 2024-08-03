@@ -2,14 +2,28 @@ package com.tenutz.kiosksim.utils.ext
 
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import kotlin.math.pow
 
 val Int.toCurrency: String get() = run {
     val formatter: NumberFormat = DecimalFormat("#,###")
     formatter.format(this)
 }
 
-fun randomNumber(n: Int) = ((10.0.pow(n - 1.0).takeIf { it != 1.0 }?.toLong() ?: 0) until 10.0.pow(n.toDouble()).toLong()).random()
+fun randomNumber(n: Int, charRange: CharRange=('0'..'9')): String {
+    val allowedChars = (charRange)
+    return (1..n)
+        .map { allowedChars.random() }
+        .joinToString("")
+}
+
+val String?.toCouponNumber: String get() = takeIf { !isNullOrBlank() }?.run {
+
+    var substring = substring(0, 4)
+
+    if(substring.startsWith("0"))
+        substring = "${randomNumber(1, ('1'..'9'))}${substring(1, 4)}"
+
+    return "$substring-${substring(4,8)}-${substring(8,12)}-${substring(12,16)}"
+} ?: ""
 
 val Long.toBusinessNumber: String get() = run {
     val arg1 = "$this".substring(0 until 3)

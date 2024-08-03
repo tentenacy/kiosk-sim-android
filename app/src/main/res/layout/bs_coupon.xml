@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:bind="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_bscoupon_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:theme="@style/BottomSheetDialogTheme"
+			app:behavior_hideable="true"
+			android:minHeight="570dp"
+			app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/constraint_drag_handle_container"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:paddingVertical="22dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+
+			<View
+					android:id="@+id/view_drag_handle"
+					android:layout_width="32dp"
+					android:layout_height="4dp"
+					android:background="@drawable/radius_2dp"
+					android:backgroundTint="#49454F66"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<TextView
+				android:id="@+id/text_bscoupon_title"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="쿠폰\n번호를 입력해주세요."
+				android:textSize="24sp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="20dp"
+				app:layout_constraintTop_toBottomOf="@+id/constraint_drag_handle_container"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<EditText
+				android:id="@+id/edit_bscoupon"
+				style="@style/Text"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginEnd="10dp"
+				android:layout_marginTop="20dp"
+				android:background="@drawable/input_radius"
+				android:gravity="center"
+				android:hint="0000-0000-0000-0000"
+				android:inputType="number"
+				android:maxLines="1"
+				android:padding="14dp"
+				android:fontFamily="@font/ns_medium"
+				android:textColor="@color/rect_4481"
+				android:textSize="20sp"
+				android:letterSpacing="0.02"
+				android:bufferType="spannable"
+				tools:text="1234-5678-9012-3456"
+				android:text="0000-0000-0000-0000"
+				app:layout_constraintEnd_toStartOf="@id/btn_coupon_auto_create"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/text_bscoupon_title"
+				bind:couponNumberFormat="@{null}"
+				tools:ignore="HardcodedText" />
+
+		<ImageButton
+				android:id="@+id/btn_coupon_auto_create"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				style="@style/Button"
+				android:layout_marginEnd="20dp"
+				app:layout_constraintDimensionRatio="1:1"
+				android:backgroundTint="@color/rect_4476"
+				android:background="@drawable/radius_16dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="@id/edit_bscoupon"
+				android:src="@drawable/ic_dice"
+				app:layout_constraintBottom_toBottomOf="@id/edit_bscoupon"
+				tools:ignore="HardcodedText" />
+
+		<Button
+				android:id="@+id/btn_coupon"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				style="@style/Button"
+				android:padding="18dp"
+				android:backgroundTint="@color/rect_4476"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:stateListAnimator="@null"
+				android:text="쿠폰번호 입력"
+				android:textSize="18sp"
+				android:elevation="4dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				android:layout_marginHorizontal="20dp"
+				android:layout_marginBottom="20dp"
+				app:cornerRadius="8dp"
+				tools:ignore="HardcodedText" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,4 +1,4 @@
-package com.tenutz.kiosksim.utils
+package com.tenutz.kiosksim.utils.watcher
 
 import android.widget.EditText
 import kotlin.math.min

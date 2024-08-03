@@ -8,6 +8,7 @@ import com.tenutz.kiosksim.R
 import com.tenutz.kiosksim.databinding.FragmentPaymentBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
 import com.tenutz.kiosksim.ui.payment.bs.CardSelectionBottomSheetDialog
+import com.tenutz.kiosksim.ui.payment.bs.CouponBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,6 +42,15 @@ class PaymentFragment : BaseFragment() {
                         R.id.constraint_bscard_selection_kukmin -> {
 
                         }
+                    }
+                }
+            ).show(requireActivity().supportFragmentManager, "cardSelection")
+        }
+        binding.constraintPaymentCouponContainer.setOnClickListener {
+            CouponBottomSheetDialog(
+                onClickListener = { id, _ ->
+                    when(id) {
+
                     }
                 }
             ).show(requireActivity().supportFragmentManager, "cardSelection")

@@ -1,4 +1,4 @@
-package com.tenutz.kiosksim.utils
+package com.tenutz.kiosksim.utils.watcher
 
 import android.text.Editable
 import android.text.TextWatcher
