@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<LinearLayout
+			android:id="@+id/linear_iradio_option_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingVertical="5dp"
+			android:paddingHorizontal="20dp"
+			android:orientation="horizontal">
+
+		<androidx.appcompat.widget.AppCompatRadioButton
+				android:id="@+id/radio_iradio_option"
+				style="@style/Text"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:button="@drawable/checkbox"
+				android:layout_weight="1"
+				android:minWidth="0dp"
+				android:minHeight="0dp"
+				android:paddingHorizontal="6dp"
+				android:paddingVertical="8dp"
+				android:text="샷 추가"
+				tools:text="샷 추가"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_iradio_option_amount"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="+500원"
+				tools:text="+500원"
+				tools:ignore="HardcodedText" />
+	</LinearLayout>
+</layout>

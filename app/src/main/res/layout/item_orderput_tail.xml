@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_iorderput_tail_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		<TextView
+				android:id="@+id/text_iorderput_tail_title"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:ellipsize="end"
+				android:maxLines="1"
+				android:textSize="16sp"
+				android:text="수량"
+				app:layout_constraintTop_toTopOf="@id/constraint_iorderput_tail_quantity_container"
+				app:layout_constraintBottom_toBottomOf="@id/constraint_iorderput_tail_quantity_container"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:text="수량"
+				tools:ignore="HardcodedText" />
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/constraint_iorderput_tail_quantity_container"
+				android:layout_width="120dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="30dp"
+				android:layout_marginEnd="20dp"
+				android:background="@drawable/radius_8dp_border"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent">
+
+			<ImageView
+					android:id="@+id/image_iorderput_tail_one_less"
+					android:layout_width="36dp"
+					android:layout_height="36dp"
+					android:src="@drawable/ic_minus"
+					android:contentDescription="수량 하나 빼기"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					tools:ignore="HardcodedText" />
+
+			<TextView
+					android:id="@+id/text_iorderput_tail_quantity"
+					style="@style/Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingStart="1dp"
+					tools:textColor="@color/rect_4474"
+					android:textColor="@color/rect_4474"
+					android:textSize="16sp"
+					android:text="2"
+					android:maxLength="3"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					tools:ignore="HardcodedText,RtlSymmetry"
+					tools:text="2" />
+
+			<ImageView
+					android:id="@+id/image_iorderput_tail_one_more"
+					android:layout_width="36dp"
+					android:layout_height="36dp"
+					android:src="@drawable/ic_plus"
+					android:contentDescription="수량 하나 더하기"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					tools:ignore="HardcodedText" />
+
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<Button
+				android:id="@+id/btn_iorderput_tail"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				style="@style/Button"
+				android:padding="18dp"
+				android:backgroundTint="@color/rect_4476"
+				android:layout_marginTop="50dp"
+				app:layout_constraintTop_toBottomOf="@id/constraint_iorderput_tail_quantity_container"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:stateListAnimator="@null"
+				android:text="1,000원 담기"
+				android:textSize="18sp"
+				android:elevation="4dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				android:layout_marginHorizontal="20dp"
+				android:layout_marginBottom="20dp"
+				app:cornerRadius="8dp"
+				tools:ignore="HardcodedText" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

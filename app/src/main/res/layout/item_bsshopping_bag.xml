@@ -17,9 +17,11 @@
 				android:layout_height="80dp"
 				android:background="@drawable/placeholder_logo"
 				android:contentDescription="메뉴 썸네일"
+				android:layout_marginBottom="3dp"
+				app:layout_constraintVertical_chainStyle="packed"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintBottom_toTopOf="@id/constraint_bsshopping_bag_quantity_container"
 				tools:ignore="HardcodedText" />
 
 		<TextView
@@ -43,10 +45,18 @@
 				android:textSize="12sp"
 				android:textColor="@color/rect_4480"
 				android:layout_marginEnd="6dp"
+				android:visibility="visible"
 				app:layout_constraintEnd_toStartOf="@id/image_bsshopping_bag_thumbnail"
 				app:layout_constraintTop_toBottomOf="@id/text_bsshopping_bag_name"
 				app:layout_constraintStart_toStartOf="parent"
 				tools:ignore="HardcodedText" />
+
+		<androidx.constraintlayout.widget.Barrier
+				android:id="@+id/barrier_bsshopping_bag_1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:barrierDirection="bottom"
+				app:constraint_referenced_ids="text_bsshopping_bag_options,text_bsshopping_bag_name" />
 
 		<TextView
 				android:id="@+id/text_bsshopping_bag_not_discounted_amount"
@@ -60,7 +70,7 @@
 				android:text="1,000"
 				android:layout_marginTop="4dp"
 				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/text_bsshopping_bag_options"
+				app:layout_constraintTop_toBottomOf="@id/barrier_bsshopping_bag_1"
 				tools:ignore="RtlSymmetry"
 				tools:text="1,000" />
 
@@ -86,11 +96,12 @@
 				android:id="@+id/constraint_bsshopping_bag_quantity_container"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="6dp"
+				android:layout_marginTop="3dp"
 				android:background="@drawable/radius_8dp_border"
 				app:layout_constraintTop_toBottomOf="@id/image_bsshopping_bag_thumbnail"
 				app:layout_constraintStart_toStartOf="@id/image_bsshopping_bag_thumbnail"
-				app:layout_constraintEnd_toEndOf="@id/image_bsshopping_bag_thumbnail">
+				app:layout_constraintEnd_toEndOf="@id/image_bsshopping_bag_thumbnail"
+				app:layout_constraintBottom_toBottomOf="parent">
 
 			<ImageView
 					android:id="@+id/image_bsshopping_bag_one_less"

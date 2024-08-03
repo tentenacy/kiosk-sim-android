@@ -45,9 +45,7 @@
 					android:layout_marginStart="10dp"
 					android:layout_marginEnd="20dp"
 					android:ellipsize="end"
-					android:fontFamily="@font/suit_regular"
 					android:maxLines="1"
-					android:textColor="@color/rect_4474"
 					android:textSize="16sp"
 					android:text="에스프레소"
 					app:layout_constraintVertical_chainStyle="packed"
@@ -56,7 +54,7 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintBottom_toTopOf="@id/text_itorder_menus_not_discounted_unit_kr"
 					tools:text="에스프레소"
-					tools:textColor="@color/rect_4474" />
+					tools:ignore="HardcodedText" />
 
 			<!--            android:visibility="@{args.outOfStock ? View.VISIBLE : View.INVISIBLE}"-->
 
@@ -83,13 +81,10 @@
 
 			<TextView
 					android:id="@+id/text_itorder_menus_not_discounted_amount"
-					style="@style/Text"
+					style="@style/BoldText"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:fontFamily="@font/suit_bold"
 					android:paddingStart="1dp"
-					tools:textColor="@color/rect_4474"
-					android:textColor="@color/rect_4474"
 					android:textSize="16sp"
 					android:text="1,000"
 					app:layout_constraintBottom_toBottomOf="@id/text_itorder_menus_not_discounted_unit_kr"
@@ -107,12 +102,9 @@
 					android:layout_height="wrap_content"
 					android:layout_marginTop="2dp"
 					android:layout_marginEnd="20dp"
-					android:fontFamily="@font/suit_regular"
 					android:paddingEnd="1dp"
 					android:text="원"
 					android:textSize="16sp"
-					tools:textColor="@color/rect_4474"
-					android:textColor="@color/rect_4474"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintTop_toBottomOf="@id/text_itorder_menus_name"

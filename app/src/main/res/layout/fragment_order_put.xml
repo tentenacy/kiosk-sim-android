@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_order_put_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/rect_4484">
+
+		<ImageView
+				android:id="@+id/image_order_put_back"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="15dp"
+				android:contentDescription="뒤로가기"
+				android:src="@drawable/ic_arrow"
+				app:tint="@color/rect_4474"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:ignore="HardcodedText" />
+
+
+		<ImageView
+				android:id="@+id/image_order_put_home"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:src="@drawable/ic_home"
+				android:contentDescription="나가기"
+				app:tint="@color/rect_4474"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginEnd="20dp"
+				android:layout_marginTop="15dp"
+				tools:ignore="HardcodedText" />
+
+
+		<TextView
+				android:id="@+id/text_order_put_title"
+				style="@style/BoldText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="메뉴담기"
+				android:textSize="18sp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="@id/image_order_put_back"
+				app:layout_constraintBottom_toBottomOf="@id/image_order_put_back"
+				app:layout_constraintEnd_toEndOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler_order_put"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+				android:clipToPadding="false"
+				android:paddingBottom="20dp"
+				android:background="@color/white"
+				tools:itemCount="1"
+				tools:listitem="@layout/overview_item_order_put"
+				android:layout_marginTop="19dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/text_order_put_title" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

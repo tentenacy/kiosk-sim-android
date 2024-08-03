@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.tenutz.kiosksim.databinding.FragmentOrderBinding
+import com.tenutz.kiosksim.databinding.FragmentOrderSelectionBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
-import com.tenutz.kiosksim.ui.order.bs.ShoppingBagBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OrderFragment: BaseFragment() {
+class OrderSelectionFragment: BaseFragment() {
 
-    private var _binding: FragmentOrderBinding? = null
-    val binding: FragmentOrderBinding get() = _binding!!
+    private var _binding: FragmentOrderSelectionBinding? = null
+    val binding: FragmentOrderSelectionBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +21,7 @@ class OrderFragment: BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentOrderBinding.inflate(inflater, container, false)
+        _binding = FragmentOrderSelectionBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -34,15 +33,8 @@ class OrderFragment: BaseFragment() {
     }
 
     private fun setOnClickListeners() {
-        binding.fabOrderShoppingBag.setOnClickListener {
-            ShoppingBagBottomSheetDialog(
-                onClickListener = { id, _ ->
-
-                }
-            ).show(childFragmentManager, "shopping bag_dialog")
-        }
-        binding.imageOrderHome.setOnClickListener {
-            findNavController().navigate(OrderFragmentDirections.actionOrderFragmentToOrderPutFragment())
+        binding.constraintOrderSelectionTakeInContainer.setOnClickListener {
+            findNavController().navigate(OrderSelectionFragmentDirections.actionOrderSelectionFragmentToOrderFragment())
         }
     }
 

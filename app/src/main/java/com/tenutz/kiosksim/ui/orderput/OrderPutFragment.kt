@@ -1,19 +1,18 @@
-package com.tenutz.kiosksim.ui.main
+package com.tenutz.kiosksim.ui.orderput
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.tenutz.kiosksim.databinding.FragmentMainBinding
+import com.tenutz.kiosksim.databinding.FragmentOrderPutBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment() {
+class OrderPutFragment: BaseFragment() {
 
-    private var _binding: FragmentMainBinding? = null
-    val binding: FragmentMainBinding get() = _binding!!
+    private var _binding: FragmentOrderPutBinding? = null
+    val binding: FragmentOrderPutBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,7 +20,7 @@ class MainFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentOrderPutBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -33,9 +32,6 @@ class MainFragment : BaseFragment() {
     }
 
     private fun setOnClickListeners() {
-        binding.constraintMainOrderContainer.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToOrderSelectionFragment())
-        }
     }
 
     override fun onDestroyView() {

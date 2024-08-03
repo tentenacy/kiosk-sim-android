@@ -47,11 +47,11 @@
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintBottom_toTopOf="@id/constraint_order_selection_order_container"
+				app:layout_constraintBottom_toTopOf="@id/constraint_order_selection_take_in_container"
 				tools:ignore="HardcodedText" />
 
 		<androidx.constraintlayout.widget.ConstraintLayout
-				android:id="@+id/constraint_order_selection_order_container"
+				android:id="@+id/constraint_order_selection_take_in_container"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="20dp"
@@ -61,13 +61,13 @@
 				android:padding="72dp"
 				android:layout_marginBottom="10dp"
 				app:layout_constraintVertical_chainStyle="packed"
-				app:layout_constraintBottom_toTopOf="@id/constraint_order_selection_review_container"
+				app:layout_constraintBottom_toTopOf="@id/constraint_order_selection_take_out_container"
 				app:layout_constraintTop_toTopOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent">
 
 			<TextView
-					android:id="@+id/text_order_selection_order"
+					android:id="@+id/text_order_selection_take_in"
 					style="@style/BoldText"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
 		</androidx.constraintlayout.widget.ConstraintLayout>
 
 		<androidx.constraintlayout.widget.ConstraintLayout
-				android:id="@+id/constraint_order_selection_review_container"
+				android:id="@+id/constraint_order_selection_take_out_container"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="20dp"
@@ -94,12 +94,12 @@
 				android:padding="72dp"
 				android:layout_marginTop="10dp"
 				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/constraint_order_selection_order_container"
+				app:layout_constraintTop_toBottomOf="@id/constraint_order_selection_take_in_container"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent">
 
 			<TextView
-					android:id="@+id/text_order_selection_review"
+					android:id="@+id/text_order_selection_take_out"
 					style="@style/BoldText"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"

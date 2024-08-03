@@ -28,11 +28,10 @@
 
 
 			<ImageView
-					android:id="@+id/image_order_quit"
+					android:id="@+id/image_order_home"
 					android:layout_width="30dp"
 					android:layout_height="30dp"
-					android:src="@drawable/ic_quit"
-					android:padding="4dp"
+					android:src="@drawable/ic_home"
 					android:contentDescription="나가기"
 					app:tint="@color/rect_4474"
 					app:layout_constraintTop_toTopOf="parent"

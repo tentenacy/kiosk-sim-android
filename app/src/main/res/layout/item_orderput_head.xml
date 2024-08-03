@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_iorderput_head_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/rect_4484">
+
+
+		<ImageView
+				android:id="@+id/image_iorderput_head_thumbnail"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:src="@drawable/img_sample_menu_thumbnail"
+				tools:src="@drawable/img_sample_menu_thumbnail"
+				android:scaleType="centerCrop"
+				android:contentDescription="메뉴 썸네일"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintDimensionRatio="1:0.618"
+				tools:ignore="HardcodedText"
+				app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+				android:id="@+id/text_iorderput_head_highlight"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="30dp"
+				android:layout_marginStart="20dp"
+				android:background="@drawable/radius_8dp"
+				android:backgroundTint="@color/rect_4490"
+				android:paddingHorizontal="6dp"
+				android:paddingVertical="2dp"
+				android:text="인기"
+				android:textColor="@color/rect_4491"
+				android:textSize="12sp"
+				android:visibility="visible"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/image_iorderput_head_thumbnail"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_iorderput_head_name"
+				style="@style/BoldText"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:ellipsize="end"
+				android:maxLines="2"
+				android:textColor="@color/rect_4474"
+				android:textSize="24sp"
+				android:text="아메리카노"
+				android:layout_marginTop="4dp"
+				android:layout_marginEnd="10dp"
+				android:layout_marginBottom="20dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/text_iorderput_head_highlight"
+				app:layout_constraintBottom_toBottomOf="parent"
+				tools:text="아메리카노"
+				tools:ignore="HardcodedText"
+				app:layout_constraintEnd_toStartOf="@+id/text_iorderput_head_amount" />
+
+		<TextView
+				android:id="@+id/text_iorderput_head_amount"
+				style="@style/BoldText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:ellipsize="end"
+				android:maxLines="2"
+				android:textColor="@color/rect_4474"
+				android:textSize="24sp"
+				android:text="1,000원"
+				android:layout_marginEnd="20dp"
+				app:layout_constraintTop_toTopOf="@id/text_iorderput_head_name"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/text_iorderput_head_highlight"
+				tools:text="1,000원"
+				tools:ignore="HardcodedText" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
