@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_bscard_selection_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:theme="@style/BottomSheetDialogTheme"
+			app:behavior_hideable="true"
+			android:minHeight="570dp"
+			app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/constraint_drag_handle_container"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:paddingVertical="22dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+
+			<View
+					android:id="@+id/view_drag_handle"
+					android:layout_width="32dp"
+					android:layout_height="4dp"
+					android:background="@drawable/radius_2dp"
+					android:backgroundTint="#49454F66"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<TextView
+				android:id="@+id/text_bscard_selection_title"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="카드사 선택"
+				android:textSize="16sp"
+				android:layout_marginTop="20dp"
+				android:layout_marginStart="20dp"
+				app:layout_constraintTop_toBottomOf="@id/constraint_drag_handle_container"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<ScrollView
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:clipToPadding="false"
+				android:layout_marginTop="10dp"
+				android:paddingBottom="10dp"
+				android:layout_marginHorizontal="10dp"
+				app:layout_constraintTop_toBottomOf="@id/text_bscard_selection_title"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_kukmin"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_kukmin"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_kukmin"
+								android:layout_margin="20dp"
+								android:contentDescription="국민카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_kukmin"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="국민"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_shinhan"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_shinhan"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_shinhan"
+								android:layout_margin="20dp"
+								android:contentDescription="신한카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_shinhan"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="신한"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_bc"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_bc"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_bc"
+								android:layout_margin="20dp"
+								android:contentDescription="비씨카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_bc"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="비씨"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_samsung"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_samsung"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_samsung"
+								android:layout_margin="20dp"
+								android:contentDescription="삼성카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_samsung"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="삼성"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_hyundai"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_hyundai"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_hyundai"
+								android:layout_margin="20dp"
+								android:contentDescription="현대카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_hyundai"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="현대"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_nonghyup"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_nonghyup"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_nonghyup"
+								android:layout_margin="20dp"
+								android:contentDescription="농협카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_nonghyup"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="농협"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_lotte"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_lotte"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_lotte"
+								android:layout_margin="20dp"
+								android:contentDescription="롯데카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_lotte"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="롯데"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_hana"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_hana"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_hana"
+								android:layout_margin="20dp"
+								android:contentDescription="하나카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_hana"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="하나"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_woori"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_woori"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_woori"
+								android:layout_margin="20dp"
+								android:contentDescription="우리카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_woori"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="우리"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_citi"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_citi"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_citi"
+								android:layout_margin="20dp"
+								android:contentDescription="씨티카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_citi"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="씨티"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_gwangju"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_gwangju"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_gwangju"
+								android:layout_margin="20dp"
+								android:contentDescription="광주은행카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_gwangju"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="광주은행"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_jeonbuk"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_jeonbuk"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_jeonbuk"
+								android:layout_margin="20dp"
+								android:contentDescription="전북은행카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_jeonbuk"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="전북은행"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_post"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_post"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_post"
+								android:layout_margin="20dp"
+								android:contentDescription="우체국카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_post"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="우체국"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_jeju"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_jeju"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_jeju"
+								android:layout_margin="20dp"
+								android:contentDescription="제주카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_jeju"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="제주"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_mg"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_mg"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_mg"
+								android:layout_margin="20dp"
+								android:contentDescription="MG새마을카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_mg"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="MG새마을"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_shinhyup"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_shinhyup"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_shinhyup"
+								android:layout_margin="20dp"
+								android:contentDescription="신협카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_shinhyup"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="신협"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_kakaobank"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_kakaobank"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_kakaobank"
+								android:layout_margin="20dp"
+								android:contentDescription="카카오뱅크카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_kakaobank"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="카카오뱅크"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_kbank"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_kbank"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_kbank"
+								android:layout_margin="20dp"
+								android:contentDescription="케이뱅크카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_kbank"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="케이뱅크"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_sb"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_sb"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_sb"
+								android:layout_margin="20dp"
+								android:contentDescription="저축은행카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_sb"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="저축은행"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+							android:id="@+id/constraint_bscard_selection_kdb"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_margin="10dp"
+							android:background="@drawable/radius_4dp_border">
+
+						<ImageView
+								android:id="@+id/image_bscard_selection_kdb"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_card_kdb"
+								android:layout_margin="20dp"
+								android:contentDescription="KDB산업카드"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintStart_toStartOf="parent"
+								tools:ignore="HardcodedText" />
+
+						<TextView
+								android:id="@+id/text_bscard_selection_kdb"
+								style="@style/Text"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="KDB산업"
+								android:textSize="14sp"
+								android:layout_margin="20dp"
+								app:layout_constraintTop_toTopOf="parent"
+								app:layout_constraintBottom_toBottomOf="parent"
+								app:layout_constraintEnd_toEndOf="parent"
+								tools:ignore="HardcodedText" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+				</LinearLayout>
+
+
+			</LinearLayout>
+
+
+		</ScrollView>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

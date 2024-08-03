@@ -9,7 +9,7 @@
 			android:layout_height="match_parent"
 			android:theme="@style/BottomSheetDialogTheme"
 			app:behavior_hideable="true"
-			android:minHeight="569dp"
+			android:minHeight="570dp"
 			app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
 		<androidx.constraintlayout.widget.ConstraintLayout
