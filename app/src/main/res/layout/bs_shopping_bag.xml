@@ -12,15 +12,27 @@
 			android:minHeight="569dp"
 			app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-		<View
-				android:id="@+id/view_bsshopping_bag_drag_handle"
-				android:layout_width="32dp"
-				android:layout_height="4dp"
-				android:background="#49454F66"
-				android:layout_marginTop="22dp"
+		<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/constraint_drag_handle_container"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:paddingVertical="22dp"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toTopOf="parent" />
+				app:layout_constraintTop_toTopOf="parent">
+
+			<View
+					android:id="@+id/view_drag_handle"
+					android:layout_width="32dp"
+					android:layout_height="4dp"
+					android:background="@drawable/radius_2dp"
+					android:backgroundTint="#49454F66"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
 
 		<androidx.recyclerview.widget.RecyclerView
 				android:id="@+id/recycle_bsshopping_bag"
@@ -28,15 +40,14 @@
 				android:layout_height="0dp"
 				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 				android:clipToPadding="false"
+				android:paddingTop="10dp"
 				android:paddingBottom="20dp"
-				android:layout_marginTop="12dp"
-				android:layout_marginBottom="20dp"
-				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_wrapBehaviorInParent="included"
+				app:layout_constraintBottom_toTopOf="@id/btn_bsshopping_bag"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/view_bsshopping_bag_drag_handle"
+				app:layout_constraintTop_toBottomOf="@id/constraint_drag_handle_container"
 				tools:listitem="@layout/item_bsshopping_bag" />
-
 
 		<Button
 				android:id="@+id/btn_bsshopping_bag"
