@@ -21,7 +21,9 @@ class ShoppingBagBottomSheetDialog(
     }
 
     private fun setOnClickListeners() {
-        binding.btnBsshoppingBag.setOnClickListener {
+        binding.btnBsshoppingBag.setOnClickListener { v ->
+            onClickListener(v.id, Unit)
+            dismiss()
         }
     }
 }

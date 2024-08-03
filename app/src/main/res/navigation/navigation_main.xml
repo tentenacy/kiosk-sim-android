@@ -40,6 +40,9 @@
 		<action
 				android:id="@+id/action_orderFragment_to_orderPutFragment"
 				app:destination="@id/orderPutFragment" />
+		<action
+				android:id="@+id/action_orderFragment_to_paymentFragment"
+				app:destination="@id/paymentFragment" />
 	</fragment>
 	<fragment
 			android:id="@+id/orderPutFragment"
@@ -55,4 +58,9 @@
 				android:id="@+id/action_orderSelectionFragment_to_orderFragment"
 				app:destination="@id/orderFragment" />
 	</fragment>
+	<fragment
+			android:id="@+id/paymentFragment"
+			android:name="com.tenutz.kiosksim.ui.payment.PaymentFragment"
+			android:label="PaymentFragment"
+			tools:layout="@layout/fragment_payment" />
 </navigation>

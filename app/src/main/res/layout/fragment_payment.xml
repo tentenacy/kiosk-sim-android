@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_payment_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<ImageView
+				android:id="@+id/image_payment_back"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="15dp"
+				android:contentDescription="뒤로가기"
+				android:src="@drawable/ic_arrow"
+				app:tint="@color/rect_4474"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:ignore="HardcodedText" />
+
+
+		<ImageView
+				android:id="@+id/image_payment_home"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:src="@drawable/ic_home"
+				android:contentDescription="나가기"
+				app:tint="@color/rect_4474"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginEnd="20dp"
+				android:layout_marginTop="15dp"
+				tools:ignore="HardcodedText" />
+
+
+		<TextView
+				android:id="@+id/text_payment_title"
+				style="@style/BoldText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="주문결제"
+				android:textSize="18sp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="@id/image_payment_back"
+				app:layout_constraintBottom_toBottomOf="@id/image_payment_back"
+				app:layout_constraintEnd_toEndOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<ScrollView
+				android:id="@+id/scroll_payment_container"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:layout_marginTop="19dp"
+				android:orientation="vertical"
+				android:fillViewport="true"
+				android:clipToPadding="false"
+				android:paddingVertical="20dp"
+				app:layout_constraintTop_toBottomOf="@id/text_payment_title"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toTopOf="@+id/btn_payment">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+						android:id="@+id/constraint_payment_card_container"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="60dp"
+						android:background="@drawable/radius_16dp_border"
+						android:layout_marginBottom="10dp"
+						app:layout_constraintVertical_chainStyle="packed"
+						app:layout_constraintBottom_toTopOf="@id/constraint_payment_cash_container"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent">
+
+					<TextView
+							android:id="@+id/text_payment_card_title"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/Text"
+							android:text="카드결제"
+							android:layout_marginBottom="10dp"
+							android:textSize="20sp"
+							android:layout_marginEnd="2dp"
+							app:layout_constraintHorizontal_chainStyle="packed"
+							app:layout_constraintBottom_toBottomOf="parent"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toStartOf="@id/text_payment_card_desc"
+							tools:ignore="HardcodedText" />
+
+					<TextView
+							android:id="@+id/text_payment_card_desc"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/BoldText"
+							android:text="카드사 선택"
+							android:layout_marginStart="2dp"
+							android:textColor="@color/rect_4480"
+							app:layout_constraintTop_toTopOf="@id/text_payment_card_title"
+							app:layout_constraintBottom_toBottomOf="@id/text_payment_card_title"
+							app:layout_constraintStart_toEndOf="@id/text_payment_card_title"
+							app:layout_constraintEnd_toEndOf="parent"
+							tools:ignore="HardcodedText" />
+
+
+					<View
+							android:id="@+id/view_payment_card_divider"
+							android:layout_width="0dp"
+							android:layout_height="0.5dp"
+							android:background="@color/rect_4480"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintBottom_toTopOf="@id/text_payment_card_title"
+							android:layout_marginBottom="10dp" />
+
+					<ImageView
+							android:id="@+id/image_payment_card"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:contentDescription="카드결제"
+							android:src="@drawable/ic_card"
+							android:layout_marginVertical="30dp"
+							app:layout_constraintTop_toTopOf="parent"
+							app:layout_constraintBottom_toTopOf="@id/view_payment_card_divider"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							tools:ignore="HardcodedText" />
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+						android:id="@+id/constraint_payment_cash_container"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="60dp"
+						android:background="@drawable/radius_16dp_border"
+						android:layout_marginVertical="10dp"
+						app:layout_constraintBottom_toTopOf="@id/constraint_payment_coupon_container"
+						app:layout_constraintTop_toBottomOf="@id/constraint_payment_card_container"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent">
+
+					<TextView
+							android:id="@+id/text_payment_cash_title"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/Text"
+							android:text="현금결제"
+							android:layout_marginBottom="10dp"
+							android:textSize="20sp"
+							app:layout_constraintHorizontal_chainStyle="packed"
+							app:layout_constraintBottom_toBottomOf="parent"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							tools:ignore="HardcodedText" />
+
+					<View
+							android:id="@+id/view_payment_cash_divider"
+							android:layout_width="0dp"
+							android:layout_height="0.5dp"
+							android:background="@color/rect_4480"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintBottom_toTopOf="@id/text_payment_cash_title"
+							android:layout_marginBottom="10dp" />
+
+					<ImageView
+							android:id="@+id/image_payment_cash"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:contentDescription="카드결제"
+							android:src="@drawable/ic_cash"
+							android:layout_marginVertical="30dp"
+							app:layout_constraintTop_toTopOf="parent"
+							app:layout_constraintBottom_toTopOf="@id/view_payment_cash_divider"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							tools:ignore="HardcodedText" />
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+						android:id="@+id/constraint_payment_coupon_container"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="60dp"
+						android:layout_marginTop="10dp"
+						android:background="@drawable/radius_16dp_border"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintTop_toBottomOf="@id/constraint_payment_cash_container"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent">
+
+					<TextView
+							android:id="@+id/text_payment_coupon_title"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/Text"
+							android:text="쿠폰사용"
+							android:layout_marginBottom="10dp"
+							android:textSize="20sp"
+							android:layout_marginEnd="2dp"
+							app:layout_constraintHorizontal_chainStyle="packed"
+							app:layout_constraintBottom_toBottomOf="parent"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toStartOf="@id/text_payment_coupon_desc"
+							tools:ignore="HardcodedText" />
+
+					<TextView
+							android:id="@+id/text_payment_coupon_desc"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/BoldText"
+							android:text="쿠폰번호 입력"
+							android:layout_marginStart="2dp"
+							android:textColor="@color/rect_4480"
+							app:layout_constraintTop_toTopOf="@id/text_payment_coupon_title"
+							app:layout_constraintBottom_toBottomOf="@id/text_payment_coupon_title"
+							app:layout_constraintStart_toEndOf="@id/text_payment_coupon_title"
+							app:layout_constraintEnd_toEndOf="parent"
+							tools:ignore="HardcodedText" />
+
+
+					<View
+							android:id="@+id/view_payment_coupon_divider"
+							android:layout_width="0dp"
+							android:layout_height="0.5dp"
+							android:background="@color/rect_4480"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintBottom_toTopOf="@id/text_payment_coupon_title"
+							android:layout_marginBottom="10dp" />
+
+					<ImageView
+							android:id="@+id/image_payment_coupon"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:contentDescription="쿠폰사용"
+							android:src="@drawable/ic_coupon"
+							android:layout_marginVertical="30dp"
+							app:layout_constraintTop_toTopOf="parent"
+							app:layout_constraintBottom_toTopOf="@id/view_payment_coupon_divider"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							tools:ignore="HardcodedText" />
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		</ScrollView>
+
+		<Button
+				android:id="@+id/btn_payment"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				style="@style/Button"
+				android:padding="18dp"
+				android:backgroundTint="@color/rect_4476"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:stateListAnimator="@null"
+				android:text="18,500원 결제하기"
+				android:textSize="18sp"
+				android:elevation="4dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				android:layout_marginHorizontal="20dp"
+				android:layout_marginBottom="20dp"
+				app:cornerRadius="8dp"
+				tools:ignore="HardcodedText" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
