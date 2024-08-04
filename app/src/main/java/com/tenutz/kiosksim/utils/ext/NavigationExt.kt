@@ -38,3 +38,19 @@ fun MainActivity.navigateToLoginFragment() {
         }
     }
 }
+
+fun MainActivity.navigateToMainFragment() {
+    currentFragment()?.findNavController()?.run {
+        navigate(
+            R.id.action_global_mainFragment,
+            null,
+            NavOptions.Builder()
+                .setPopUpTo(R.id.mainFragment, true)
+                .setEnterAnim(0)
+                .setExitAnim(0)
+                .setPopEnterAnim(0)
+                .setPopExitAnim(0)
+                .build()
+        )
+    }
+}

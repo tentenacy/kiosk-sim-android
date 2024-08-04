@@ -128,7 +128,7 @@
 					android:id="@+id/vpager_order"
 					android:layout_width="0dp"
 					android:layout_height="0dp"
-					android:background="@color/rect_4484"
+					android:background="@color/rect_2"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"

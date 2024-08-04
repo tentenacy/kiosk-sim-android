@@ -62,5 +62,14 @@
 			android:id="@+id/paymentFragment"
 			android:name="com.tenutz.kiosksim.ui.payment.PaymentFragment"
 			android:label="PaymentFragment"
-			tools:layout="@layout/fragment_payment" />
+			tools:layout="@layout/fragment_payment" >
+		<action
+				android:id="@+id/action_paymentFragment_to_orderCompleteFragment"
+				app:destination="@id/orderCompleteFragment" />
+	</fragment>
+	<fragment
+			android:id="@+id/orderCompleteFragment"
+			android:name="com.tenutz.kiosksim.ui.ordercomplete.OrderCompleteFragment"
+			android:label="OrderCompleteFragment"
+			tools:layout="@layout/fragment_order_complete" /><action android:id="@+id/action_global_mainFragment" app:destination="@id/mainFragment"/>
 </navigation>

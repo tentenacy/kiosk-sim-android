@@ -7,7 +7,7 @@
 			android:id="@+id/constraint_order_put_container"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:background="@color/rect_4484">
+			android:background="@color/rect_2">
 
 		<ImageView
 				android:id="@+id/image_order_put_back"

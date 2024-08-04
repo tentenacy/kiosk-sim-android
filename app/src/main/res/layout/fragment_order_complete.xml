@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_main_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/rect_2">
+
+		<TextView
+				android:id="@+id/text_order_complete_title"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="197.76dp"
+				android:fontFamily="@font/suit_regular"
+				android:text="주문이\n접수되었습니다."
+				android:textColor="@color/rect_4474"
+				android:textSize="24sp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:ignore="HardcodedText" />
+
+
+		<ImageView
+				android:id="@+id/image_order_complete_man"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:contentDescription="결제 완료"
+				android:src="@drawable/ic_card_approval"
+				android:translationX="-30dp"
+				app:layout_constraintBottom_toTopOf="@id/view_order_complete_dummy"
+				app:layout_constraintStart_toEndOf="@id/text_order_complete_title"
+				tools:ignore="HardcodedText" />
+
+		<View
+				android:id="@+id/view_order_complete_dummy"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				app:layout_constraintBottom_toBottomOf="@id/text_order_complete_title"
+				app:layout_constraintEnd_toEndOf="@id/text_order_complete_title"
+				app:layout_constraintStart_toStartOf="@id/text_order_complete_title"
+				app:layout_constraintTop_toTopOf="@id/text_order_complete_title" />
+
+		<ImageView
+				android:id="@+id/image_order_complete_receipt"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:contentDescription="영수증"
+				android:src="@drawable/ic_receipt"
+				android:layout_marginTop="50dp"
+				app:layout_constraintTop_toBottomOf="@id/text_order_complete_title"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_order_complete_label_call_number"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/BoldText"
+				android:text="주문번호"
+				android:textColor="@color/rect_4474"
+				android:textSize="18sp"
+				android:layout_marginEnd="32dp"
+				android:layout_marginBottom="5dp"
+				app:layout_constraintVertical_chainStyle="packed"
+				app:layout_constraintBottom_toTopOf="@id/text_order_complete_call_number"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="@id/image_order_complete_receipt" />
+
+		<TextView
+				android:id="@+id/text_order_complete_call_number"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/BoldText"
+				android:text="257번"
+				android:textColor="@color/rect_4477"
+				android:textSize="18sp"
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="10dp"
+				app:layout_constraintBottom_toTopOf="@id/text_order_complete_call_number_desc"
+				app:layout_constraintStart_toStartOf="@id/text_order_complete_label_call_number"
+				app:layout_constraintEnd_toEndOf="@id/text_order_complete_label_call_number"
+				app:layout_constraintTop_toBottomOf="@id/text_order_complete_label_call_number" />
+
+		<TextView
+				android:id="@+id/text_order_complete_call_number_desc"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/BoldText"
+				android:text="주문하신 번호를\n정성껏 준비중입니다."
+				android:textColor="@color/rect_4474"
+				android:textSize="8sp"
+				android:layout_marginTop="10dp"
+				android:gravity="center"
+				app:layout_constraintBottom_toBottomOf="@id/image_order_complete_receipt"
+				app:layout_constraintStart_toStartOf="@id/text_order_complete_label_call_number"
+				app:layout_constraintEnd_toEndOf="@id/text_order_complete_label_call_number"
+				app:layout_constraintTop_toBottomOf="@id/text_order_complete_call_number" />
+
+
+		<TextView
+				android:id="@+id/text_order_complete_to_main_seconds"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/BoldText"
+				android:text="5"
+				android:textColor="@color/rect_4477"
+				android:textSize="18sp"
+				app:layout_constraintHorizontal_chainStyle="packed"
+				app:layout_constraintTop_toTopOf="@id/text_order_complete_to_main"
+				app:layout_constraintBottom_toBottomOf="@id/text_order_complete_to_main"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toStartOf="@id/text_order_complete_to_main" />
+
+		<TextView
+				android:id="@+id/text_order_complete_to_main"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/BoldText"
+				android:text="초후 메인화면으로 이동합니다."
+				android:textColor="@color/rect_4474"
+				android:textSize="18sp"
+				app:layout_constraintTop_toBottomOf="@id/image_order_complete_receipt"
+				app:layout_constraintStart_toEndOf="@id/text_order_complete_to_main_seconds"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginTop="50dp" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

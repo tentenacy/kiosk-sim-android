@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.tenutz.kiosksim.R
 import com.tenutz.kiosksim.databinding.FragmentPaymentBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
@@ -54,6 +55,9 @@ class PaymentFragment : BaseFragment() {
                     }
                 }
             ).show(requireActivity().supportFragmentManager, "cardSelection")
+        }
+        binding.btnPayment.setOnClickListener {
+            findNavController().navigate(PaymentFragmentDirections.actionPaymentFragmentToOrderCompleteFragment())
         }
     }
 
