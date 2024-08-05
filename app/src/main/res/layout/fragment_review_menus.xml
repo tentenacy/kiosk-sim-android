@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_review_menus_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<ImageView
+				android:id="@+id/image_review_menus_back"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="15dp"
+				android:contentDescription="뒤로가기"
+				android:src="@drawable/ic_arrow"
+				app:tint="@color/rect_4474"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:ignore="HardcodedText" />
+
+
+		<ImageView
+				android:id="@+id/image_review_menus_home"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:src="@drawable/ic_home"
+				android:contentDescription="나가기"
+				app:tint="@color/rect_4474"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginEnd="20dp"
+				android:layout_marginTop="15dp"
+				tools:ignore="HardcodedText" />
+
+
+		<TextView
+				android:id="@+id/text_review_menus_title"
+				style="@style/BoldText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="평가메뉴선택"
+				android:textSize="18sp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="@id/image_review_menus_back"
+				app:layout_constraintBottom_toBottomOf="@id/image_review_menus_back"
+				app:layout_constraintEnd_toEndOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_review_menus_title_desc"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="평가할\n메뉴를 선택해주세요."
+				android:textSize="24sp"
+				android:layout_marginTop="38dp"
+				android:layout_marginStart="20dp"
+				app:layout_constraintTop_toBottomOf="@id/text_review_menus_title"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:ignore="HardcodedText" />
+
+		<EditText
+				android:id="@+id/edit_review_menus_search"
+				style="@style/Text"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="20dp"
+				android:layout_marginTop="18dp"
+				android:background="@drawable/radius_8dp"
+				android:backgroundTint="@color/rect_4482"
+				android:fontFamily="@font/suit_regular"
+				android:gravity="start"
+				android:hint="메뉴명 검색"
+				android:importantForAutofill="no"
+				android:inputType="text"
+				android:maxLines="1"
+				android:padding="8dp"
+				android:paddingStart="46dp"
+				android:paddingEnd="10dp"
+				android:textColor="@color/rect_4474"
+				android:textColorHint="@color/rect_4480"
+				android:textSize="15sp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/text_review_menus_title_desc"
+				tools:ignore="HardcodedText" />
+
+		<ImageView
+				android:layout_width="26dp"
+				android:layout_height="26dp"
+				android:layout_marginStart="10dp"
+				android:contentDescription="돋보기 이미지"
+				android:src="@drawable/ic_search"
+				app:layout_constraintBottom_toBottomOf="@id/edit_review_menus_search"
+				app:layout_constraintStart_toStartOf="@id/edit_review_menus_search"
+				app:layout_constraintTop_toTopOf="@id/edit_review_menus_search"
+				tools:ignore="HardcodedText" />
+
+		<View
+				android:id="@+id/view_review_menus_divider_1"
+				android:layout_width="0dp"
+				android:layout_height="8dp"
+				android:background="@color/rect_4485"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/edit_review_menus_search"
+				android:layout_marginTop="20dp" />
+
+		<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycle_review_menus"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+				android:background="@color/rect_2"
+				android:clipToPadding="false"
+				android:paddingBottom="50dp"
+				android:paddingTop="18dp"
+				tools:listitem="@layout/item_review_menus"
+				app:layout_wrapBehaviorInParent="included"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/view_review_menus_divider_1" />
+
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

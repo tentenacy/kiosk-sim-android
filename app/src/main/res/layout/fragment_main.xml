@@ -10,6 +10,19 @@
 			android:background="@color/rect_4476">
 
 		<ImageView
+				android:id="@+id/image_main_logo"
+				android:layout_width="87.78dp"
+				android:layout_height="30dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="15dp"
+				android:src="@drawable/logo_text"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:tint="@color/white"
+				tools:ignore="ContentDescription" />
+
+
+		<ImageView
 				android:id="@+id/imaeg_main_quit"
 				android:layout_width="30dp"
 				android:layout_height="30dp"
