@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import androidx.databinding.ViewDataBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.tenutz.kiosksim.R
@@ -14,7 +15,7 @@ abstract class HandleDraggableBottomSheetDialogFragment<VB : ViewDataBinding>(la
     BaseBottomSheetDialogFragment<VB>(layoutId) {
 
     companion object {
-        private const val SCROLL_VERTICAL_RATIO = 0.75
+        private const val SCROLL_VERTICAL_RATIO = 0.45
     }
 
     private var lastTouchY: Float = 0f
@@ -58,7 +59,8 @@ abstract class HandleDraggableBottomSheetDialogFragment<VB : ViewDataBinding>(la
                 MotionEvent.ACTION_UP -> {
                     if (bottomSheet.y < binding.root.height.toFloat() * (1 - SCROLL_VERTICAL_RATIO) + bottomSheet.top) {
                         ObjectAnimator.ofFloat(bottomSheet, "translationY", 0f).apply {
-                            duration = 50
+                            DecelerateInterpolator(2f)
+                            duration = 300
                             start()
                         }
                     } else {

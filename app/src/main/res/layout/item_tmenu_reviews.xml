@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+<!--        <variable-->
+<!--            name="args"-->
+<!--            type="com.tenutz.storemngsim.data.datasource.paging.entity.MenuReviews.MenuReview" />-->
+
+<!--        <import type="android.view.View" />-->
+<!--        <import type="com.tenutz.storemngsim.utils.ext.TimeExtKt" />-->
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_itmenu_reviews_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        android:text="@{args.createdBy}"-->
+        <TextView
+            android:id="@+id/text_itmenu_reviews_created_by"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/suit_bold"
+            android:textColor="@color/rect_4474"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="김길동" />
+
+<!--        android:text="@{TimeExtKt.toDateFormatKr(args.createdAt)}"-->
+        <TextView
+            android:id="@+id/text_itmenu_reviews_created_at"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/suit_regular"
+            android:textColor="@color/rect_4480"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_itmenu_reviews_created_by"
+            tools:text="2022.08.30(화)" />
+
+<!--        bind:rating="@{args.rating}"-->
+        <ImageView
+            android:id="@+id/image_itmenu_reviews_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/ic_star_5"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="별점"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_itmenu_reviews_created_by"
+            app:layout_constraintBottom_toBottomOf="@id/text_itmenu_reviews_created_at"
+            tools:ignore="HardcodedText" />
+
+<!--        android:text="@{args.menuName}"-->
+        <TextView
+            android:id="@+id/text_itmenu_reviews_menu_name"
+            style="@style/Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/radius_8dp"
+            android:backgroundTint="@color/rect_4485"
+            android:fontFamily="@font/suit_regular"
+            android:paddingVertical="15dp"
+            android:paddingStart="50dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/rect_4474"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_itmenu_reviews_created_at"
+            tools:text="아메리카노" />
+
+<!--        bind:showImage="@{args.imageUrl}"-->
+        <ImageView
+            android:id="@+id/image_itmenu_reviews_menu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="메뉴 썸네일 이미지"
+            android:src="@drawable/placeholder_logo"
+            app:layout_constraintBottom_toBottomOf="@id/text_itmenu_reviews_menu_name"
+            app:layout_constraintStart_toStartOf="@id/text_itmenu_reviews_menu_name"
+            app:layout_constraintTop_toTopOf="@id/text_itmenu_reviews_menu_name"
+            tools:ignore="HardcodedText" />
+
+<!--        android:text="@{args.content}"-->
+        <kr.co.prnd.readmore.ReadMoreTextView
+                android:id="@+id/text_itmenu_reviews_content"
+                style="@style/Text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="35dp"
+                android:fontFamily="@font/suit_regular"
+                android:textColor="@color/rect_4474"
+                android:textSize="14sp"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_itmenu_reviews_menu_name"
+                app:readMoreColor="@color/rect_4480"
+                app:readMoreMaxLine="3"
+                app:readMoreText="\n\n더보기"
+                tools:text="신랑이 커피는 카누라기에 주문했고~ 향긋하고 깔끔하니 맛있어요.. 회사에서 한잔하게 주문했어요~ 가격도 좋고 향도 좋고~ 좋아요~신랑이 커피는 카누라기에 주문했고~ 향긋하고 깔끔하니 맛있어요.. 회사에서 한잔하게 주문했어요~ 가격도 좋고 향도 좋고~ 좋아요~"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+<!--        android:visibility="@{args.menuReviewReply != null ? View.VISIBLE : View.GONE}"-->
+        <ImageView
+                android:id="@+id/image_itmenu_reviews_reply"
+                android:layout_width="11dp"
+                android:layout_height="13.21dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_reply"
+                android:contentDescription="리뷰 답글 화살표"
+                android:layout_marginTop="2.5dp"
+                app:layout_constraintStart_toStartOf="@id/text_itmenu_reviews_content"
+                app:layout_constraintTop_toTopOf="@+id/text_itmenu_reviews_reply_content"
+                tools:ignore="HardcodedText" />
+
+<!--        android:text='@{args.menuReviewReply != null ? args.menuReviewReply.content : ""}'-->
+<!--        android:visibility="@{args.menuReviewReply != null ? View.VISIBLE : View.GONE}"-->
+        <TextView
+                android:id="@+id/text_itmenu_reviews_reply_content"
+                style="@style/Text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="35dp"
+                android:fontFamily="@font/suit_regular"
+                android:textColor="@color/rect_4474"
+                android:textSize="14sp"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_itmenu_reviews_reply"
+                app:layout_constraintTop_toBottomOf="@id/text_itmenu_reviews_content"
+                app:readMoreColor="@color/rect_4480"
+                tools:text="안녕하세요, 빽다방 000점 매니저입니다.😄 커피 향이 좋고 깔끔한 맛이라고 말씀해주시니 너무 뿌듯합니다.^^ 저희 카페는 뒷맛이 순식간에 사라지는 깔끔한 맛을 내기 위해 정통드립방식으로 커피를 추출하고 있습니다. 저희 카페에 방문해주셔서 감사드리며, 다음에 또 방문해주세요~^^"
+                tools:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_itmenu_reviews_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

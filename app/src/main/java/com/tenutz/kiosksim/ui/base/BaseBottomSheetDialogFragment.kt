@@ -16,7 +16,6 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewDataBinding>(private val l
     BottomSheetDialogFragment() {
 
     private var _binding: ViewDataBinding? = null
-    private var lastTouchY: Float = 0f
 
     @Suppress("UNCHECKED_CAST")
     protected val binding: VB
@@ -51,9 +50,7 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewDataBinding>(private val l
 
 
     private fun expandFullHeight() {
-        val from = BottomSheetBehavior.from(dialog?.findViewById(R.id.design_bottom_sheet)!!)
-        from.state =
-            BottomSheetBehavior.STATE_EXPANDED
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
     }
 
     override fun onDestroyView() {

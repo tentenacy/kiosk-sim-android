@@ -36,6 +36,9 @@ class MainFragment : BaseFragment() {
         binding.constraintMainOrderContainer.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToOrderSelectionFragment())
         }
+        binding.constraintMainReviewContainer.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToReviewsFragment())
+        }
     }
 
     override fun onDestroyView() {

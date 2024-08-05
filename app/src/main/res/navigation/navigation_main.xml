@@ -31,6 +31,9 @@
 		<action
 				android:id="@+id/action_mainFragment_to_orderSelectionFragment"
 				app:destination="@id/orderSelectionFragment" />
+		<action
+				android:id="@+id/action_mainFragment_to_reviewsFragment"
+				app:destination="@id/reviewsFragment" />
 	</fragment>
 	<fragment
 			android:id="@+id/orderFragment"
@@ -65,11 +68,18 @@
 			tools:layout="@layout/fragment_payment" >
 		<action
 				android:id="@+id/action_paymentFragment_to_orderCompleteFragment"
-				app:destination="@id/orderCompleteFragment" />
+				app:destination="@id/orderCompleteFragment"
+				app:popUpTo="@id/mainFragment"
+				app:popUpToInclusive="false"/>
 	</fragment>
 	<fragment
 			android:id="@+id/orderCompleteFragment"
 			android:name="com.tenutz.kiosksim.ui.ordercomplete.OrderCompleteFragment"
 			android:label="OrderCompleteFragment"
 			tools:layout="@layout/fragment_order_complete" /><action android:id="@+id/action_global_mainFragment" app:destination="@id/mainFragment"/>
+	<fragment
+			android:id="@+id/reviewsFragment"
+			android:name="com.tenutz.kiosksim.ui.review.ReviewsFragment"
+			android:label="ReviewsFragment"
+			tools:layout="@layout/fragment_reviews" />
 </navigation>
