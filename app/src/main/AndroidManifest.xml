@@ -90,4 +90,8 @@
 
     </application>
 
+    <queries>
+        <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
+    </queries>
+
 </manifest>

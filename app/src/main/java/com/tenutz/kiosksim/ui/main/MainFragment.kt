@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.tenutz.kiosksim.databinding.FragmentMainBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
+import com.tenutz.kiosksim.utils.ext.mainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,6 +34,9 @@ class MainFragment : BaseFragment() {
     }
 
     private fun setOnClickListeners() {
+        binding.imageMainQuit.setOnClickListener {
+            mainActivity().vm.logout()
+        }
         binding.constraintMainOrderContainer.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToOrderSelectionFragment())
         }

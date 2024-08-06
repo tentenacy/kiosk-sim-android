@@ -1,7 +1,7 @@
 package com.tenutz.kiosksim.utils.converter
 
 import androidx.room.TypeConverter
-import java.util.Date
+import java.util.*
 
 
 class RoomConverters {

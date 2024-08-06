@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.tenutz.kiosksim.data.datasource.sharedpref.Settings
 import com.tenutz.kiosksim.databinding.FragmentAccessBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
+import com.tenutz.kiosksim.ui.common.LogoutDialog
+import com.tenutz.kiosksim.utils.ext.mainActivity
 
 class AccessFragment : BaseFragment() {
 
@@ -31,7 +34,13 @@ class AccessFragment : BaseFragment() {
     }
 
     private fun setOnCLickListeners() {
+        binding.imageAccessOff.setOnClickListener {
+            LogoutDialog {
+                mainActivity().vm.logout()
+            }.show(childFragmentManager, "logoutDialog")
+        }
         binding.btnAccess.setOnClickListener {
+            Settings.autoEntered = true
             findNavController().navigate(AccessFragmentDirections.actionAccessFragmentToMainFragment())
         }
     }

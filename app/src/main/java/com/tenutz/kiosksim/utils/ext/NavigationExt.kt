@@ -24,16 +24,21 @@ fun Fragment.isOnBackStack(@IdRes id: Int): Boolean = try {
 }
 
 fun MainActivity.navigateToLoginFragment() {
+
     if (currentDestinationId() == R.id.loginFragment) {
+
     } else {
-//        currentFragment()?.findNavController()?.popBackStack(R.id.loginFragment, true)
-//        currentFragment()?.findNavController()?.navigate(R.id.action_global_to_loginFragment)
+
+        val navOptions = NavOptions.Builder().setPopUpTo(
+            if (currentDestinationId() == R.id.accessFragment) R.id.accessFragment else R.id.mainFragment,
+            true
+        ).build()
 
         currentFragment()?.findNavController()?.run {
             navigate(
                 R.id.navigation_main,
                 null,
-                NavOptions.Builder().setPopUpTo(R.id.loginFragment, false).build()
+                navOptions
             )
         }
     }

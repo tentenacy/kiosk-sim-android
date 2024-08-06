@@ -23,7 +23,7 @@
 
 
 		<ImageView
-				android:id="@+id/imaeg_main_quit"
+				android:id="@+id/image_main_quit"
 				android:layout_width="30dp"
 				android:layout_height="30dp"
 				android:src="@drawable/ic_quit"

@@ -8,11 +8,11 @@
 
 <!--		<variable-->
 <!--				name="args"-->
-<!--				type="com.tenutz.storemngsim.data.datasource.paging.entity.StoreReviews.StoreReview" />-->
+<!--				type="com.tenutz.kiosksim.data.datasource.paging.entity.StoreReviews.StoreReview" />-->
 
 <!--		<import type="android.view.View" />-->
 
-<!--		<import type="com.tenutz.storemngsim.utils.ext.TimeExtKt" />-->
+<!--		<import type="com.tenutz.kiosksim.utils.ext.TimeExtKt" />-->
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout

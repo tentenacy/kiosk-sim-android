@@ -1,0 +1,36 @@
+package com.tenutz.kiosksim.data.datasource.api.dto.menu
+
+import java.util.*
+
+data class MainMenuResponse(
+    val storeCode: String?,
+    val mainCategoryCode: String?,
+    val middleCategoryCode: String?,
+    val subCategoryCode: String?,
+    val menuCode: String?,
+    val menuName: String?,
+    val price: Int,
+    val discountedPrice: Int,
+    val additionalPackagingPrice: Int,
+    val packaging: String?,
+    val outOfStock: Boolean,
+    val use: Boolean?,
+    val ingredientDisplay: Boolean,
+    val imageName: String?,
+    val imageUrl: String?,
+    val mainMenuNameKor: String?,
+    val highlightType: String?,
+    val showDateFrom: Date?,
+    val showDateTo: Date?,
+    val showTimeFrom: String?,
+    val showTimeTo: String?,
+    val showDayOfWeek: String?,
+    val eventDateFrom: Date?,
+    val eventDateTo: Date?,
+    val eventTimeFrom: String?,
+    val eventTimeTo: String?,
+    val eventDayOfWeek: String?,
+    val memoKor: String?,
+    val priority: Int?,
+    val ingredientDetails: String?,
+)
