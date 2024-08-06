@@ -81,6 +81,7 @@
 				android:layout_height="0dp"
 				style="@style/Button"
 				android:layout_marginEnd="20dp"
+				android:contentDescription="쿠폰번호 자동생성"
 				app:layout_constraintDimensionRatio="1:1"
 				android:backgroundTint="@color/rect_4476"
 				android:background="@drawable/radius_16dp"
