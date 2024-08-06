@@ -3,6 +3,13 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools">
 
+	<data>
+
+		<variable
+				name="vm"
+				type="com.tenutz.kiosksim.ui.order.OrderTabViewModel" />
+	</data>
+
 	<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/recycler_order_menus"
 			android:layout_width="match_parent"

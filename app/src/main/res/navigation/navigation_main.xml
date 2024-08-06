@@ -83,12 +83,19 @@
 				app:exitAnim="@anim/to_left"
 				app:popEnterAnim="@anim/from_left"
 				app:popExitAnim="@anim/to_right" />
+		<argument android:name="orderType" app:argType="com.tenutz.kiosksim.utils.type.OrderType" />
 	</fragment>
 	<fragment
 			android:id="@+id/orderPutFragment"
 			android:name="com.tenutz.kiosksim.ui.orderput.OrderPutFragment"
 			android:label="OrderPutFragment"
-			tools:layout="@layout/fragment_order_put" />
+			tools:layout="@layout/fragment_order_put" >
+		<argument
+				android:name="categoryMenu"
+				app:argType="com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.CategoryMenu" />
+	</fragment>
+
+
 	<fragment
 			android:id="@+id/orderSelectionFragment"
 			android:name="com.tenutz.kiosksim.ui.order.OrderSelectionFragment"

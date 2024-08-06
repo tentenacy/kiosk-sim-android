@@ -5,14 +5,9 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.CommonCondition
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesChangeRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MainMenuCreateRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MainMenuMappersResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MainMenuOptionGroupsResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MainMenuResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MainMenuUpdateRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MainMenusResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MenuPrioritiesChangeRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.menu.MenusDeleteRequest
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.menu.*
+import com.tenutz.kiosksim.data.datasource.sharedpref.User
 import com.tenutz.kiosksim.utils.constant.RetryPolicyConstant
 import com.tenutz.kiosksim.utils.ext.applyRetryPolicy
 import io.reactivex.rxjava3.core.Single
@@ -21,6 +16,17 @@ import javax.inject.Inject
 class MenuRepositoryImpl @Inject constructor(
     private val SMSApi: SMSApi,
 ) : MenuRepository {
+
+    override fun kioskMenus(): Single<Result<KioskMenusResponse>> =
+        SMSApi.kioskMenus(User.kioskCode)
+            .map { Result.success(it) }
+            .compose(
+                applyRetryPolicy(
+                    RetryPolicyConstant.TIMEOUT,
+                    RetryPolicyConstant.NETWORK,
+                    RetryPolicyConstant.SERVICE_UNAVAILABLE,
+                    RetryPolicyConstant.ACCESS_TOKEN_EXPIRED,
+                ) { Result.failure(it) })
 
     override fun mainMenus(
         mainCateCd: String,

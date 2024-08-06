@@ -9,6 +9,7 @@ import com.tenutz.kiosksim.databinding.FragmentOrderSelectionBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
 import com.tenutz.kiosksim.utils.ext.mainActivity
 import com.tenutz.kiosksim.utils.ext.navigateToMainFragment
+import com.tenutz.kiosksim.utils.type.OrderType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,7 +40,10 @@ class OrderSelectionFragment: BaseFragment() {
             mainActivity().navigateToMainFragment()
         }
         binding.constraintOrderSelectionTakeInContainer.setOnClickListener {
-            findNavController().navigate(OrderSelectionFragmentDirections.actionOrderSelectionFragmentToOrderFragment())
+            findNavController().navigate(OrderSelectionFragmentDirections.actionOrderSelectionFragmentToOrderFragment(OrderType.TAKE_IN))
+        }
+        binding.constraintOrderSelectionTakeOutContainer.setOnClickListener {
+            findNavController().navigate(OrderSelectionFragmentDirections.actionOrderSelectionFragmentToOrderFragment(OrderType.TAKE_OUT))
         }
     }
 
