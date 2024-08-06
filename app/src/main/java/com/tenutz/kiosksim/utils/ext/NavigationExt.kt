@@ -44,6 +44,18 @@ fun MainActivity.navigateToLoginFragment() {
     }
 }
 
+fun MainActivity.navigateToAccessFragment() {
+    currentFragment()?.findNavController()?.run {
+        navigate(
+            R.id.action_global_accessFragment,
+            null,
+            NavOptions.Builder()
+                .setPopUpTo(R.id.mainFragment, true)
+                .build()
+        )
+    }
+}
+
 fun MainActivity.navigateToMainFragment() {
     currentFragment()?.findNavController()?.run {
         navigate(

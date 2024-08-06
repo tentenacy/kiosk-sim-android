@@ -133,4 +133,10 @@
 			android:name="com.tenutz.kiosksim.ui.review.ReviewsFragment"
 			android:label="ReviewsFragment"
 			tools:layout="@layout/fragment_reviews" />
+	<action android:id="@+id/action_global_accessFragment"
+			app:destination="@id/accessFragment"
+			app:enterAnim="@anim/to_left"
+			app:exitAnim="@anim/from_right"
+			app:popEnterAnim="@anim/to_right"
+			app:popExitAnim="@anim/from_left" />
 </navigation>

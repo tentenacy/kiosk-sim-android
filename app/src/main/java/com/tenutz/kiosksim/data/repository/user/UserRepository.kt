@@ -13,4 +13,5 @@ interface UserRepository {
 
     fun reissue(request: TokenRequest): Single<TokenResponse>
 
+    fun storeExists(kioskCode: String): Single<Result<Unit>>
 }

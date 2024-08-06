@@ -6,7 +6,7 @@ import com.tenutz.kiosksim.utils.validation.err.base.ValidationException
 
 object Validator {
 
-    private fun validateRequiredInput(text: String) {
+    fun validateRequiredInput(text: String) {
         if(text.isBlank()) {
             throw RequiredInputValidationException()
         }
