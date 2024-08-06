@@ -88,7 +88,7 @@
 				android:layout_width="24dp"
 				android:layout_height="24dp"
 				android:layout_marginStart="10dp"
-				android:contentDescription="메뉴 썸네일 이미지"
+				android:contentDescription="위치 이미지"
 				android:src="@drawable/ic_place"
 				app:layout_constraintBottom_toBottomOf="@id/text_itstore_reviews_store_name"
 				app:layout_constraintStart_toStartOf="@id/text_itstore_reviews_store_name"
