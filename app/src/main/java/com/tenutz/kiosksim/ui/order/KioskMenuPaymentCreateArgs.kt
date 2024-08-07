@@ -1,16 +1,13 @@
-﻿package com.tenutz.kiosksim.data.datasource.api.dto.kiosk.payment
+﻿package com.tenutz.kiosksim.ui.order
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class KioskMenuPaymentCreateRequest(
-    val menuPayments: List<MenuPayment>,
+data class KioskMenuPaymentCreateArgs(
     val mainCategoryCode: String,
     val middleCategoryCode: String,
     val subCategoryCode: String,
     val orderType: String,
-    val paymentCode: String,
-    val creditCardCompanyCode: String?,
     val totalAmount: Int,
 ): Parcelable

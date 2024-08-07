@@ -90,6 +90,7 @@
 			android:name="com.tenutz.kiosksim.ui.orderput.OrderPutFragment"
 			android:label="OrderPutFragment"
 			tools:layout="@layout/fragment_order_put" >
+		<argument android:name="subCategoryCode" app:argType="string" />
 		<argument
 				android:name="categoryMenu"
 				app:argType="com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.CategoryMenu" />

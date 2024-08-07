@@ -25,6 +25,12 @@ import com.tenutz.kiosksim.utils.watcher.MinuteTextWatcher
 object CommonBindingAdapter {
 
     @JvmStatic
+    @BindingAdapter("bind:tint")
+    fun setTint(imageView: ImageView, color: Int) {
+        imageView.imageTintList = ColorStateList.valueOf(color)
+    }
+
+    @JvmStatic
     @BindingAdapter("bind:showImage", "bind:imageRadius", requireAll = false)
     fun showImage(imageView: ImageView, imageUrl: String?, radius: Int?) {
         Glide.with(imageView.context)
@@ -39,7 +45,7 @@ object CommonBindingAdapter {
                                 it.takeIf { it > 0 }?.let {
                                     RoundedCorners(it.toPx.toInt())
                                 }
-                            } ?: RoundedCorners(8.toPx.toInt()),
+                            },
                         ).toTypedArray()
                     )
                 )

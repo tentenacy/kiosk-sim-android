@@ -5,13 +5,9 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.CommonCondition
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesChangeRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionCreateRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionMappersResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionOptionGroupsResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionUpdateRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionsDeleteRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.option.KioskMenuOptionsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.option.*
+import com.tenutz.kiosksim.data.datasource.sharedpref.User
 import com.tenutz.kiosksim.utils.constant.RetryPolicyConstant
 import com.tenutz.kiosksim.utils.ext.applyRetryPolicy
 import io.reactivex.rxjava3.core.Single
@@ -20,6 +16,21 @@ import javax.inject.Inject
 class OptionRepositoryImpl @Inject constructor(
     private val SMSApi: SMSApi,
 ) : OptionRepository {
+
+    override fun menuOptions(
+        menuCode: String,
+        subCategoryCode: String
+    ): Single<Result<KioskMenuOptionsResponse>> =
+        SMSApi.menuOptions(User.kioskCode, menuCode, subCategoryCode)
+            .map { Result.success(it) }
+            .compose(
+                applyRetryPolicy(
+                    RetryPolicyConstant.TIMEOUT,
+                    RetryPolicyConstant.NETWORK,
+                    RetryPolicyConstant.SERVICE_UNAVAILABLE,
+                    RetryPolicyConstant.ACCESS_TOKEN_EXPIRED,
+                ) { Result.failure(it) })
+
     override fun options(commonCond: CommonCondition?): Single<Result<OptionsResponse>> =
         SMSApi.options(commonCond?.query)
             .map { Result.success(it) }

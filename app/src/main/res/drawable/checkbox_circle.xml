@@ -3,7 +3,10 @@
     <item
         android:width="16dp"
         android:height="16dp"
-        android:left="6dp"
+        android:start="6dp"
+        android:end="6dp"
+        android:left="8dp"
+        android:right="8dp"
         android:gravity="center_vertical">
         <selector>
             <item android:drawable="@drawable/ic_checked_circle" android:state_checked="true">

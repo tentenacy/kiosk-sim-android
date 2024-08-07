@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.DEFAULT_ARGS_KEY
 import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.navigation.fragment.findNavController
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.MenusCategory
 import com.tenutz.kiosksim.databinding.TabOrderMenusBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
 import com.tenutz.kiosksim.utils.ext.observeOnce
@@ -30,7 +31,11 @@ class OrderTabFragment: BaseFragment() {
 
     private val adapter: OrderTabAdapter by lazy {
         OrderTabAdapter {
-            findNavController().navigate(OrderFragmentDirections.actionOrderFragmentToOrderPutFragment(it))
+            findNavController().navigate(
+                OrderFragmentDirections.actionOrderFragmentToOrderPutFragment(
+                    arguments!!.getParcelable<MenusCategory>("category")!!.categoryCode,
+                    it
+                ))
         }.apply {
             setHasStableIds(true)
         }

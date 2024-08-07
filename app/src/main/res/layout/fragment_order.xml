@@ -149,6 +149,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginEnd="20dp"
 				android:layout_marginBottom="20dp"
+				app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayFloatingActionButton"
 				android:backgroundTint="@color/rect_4476"
 				android:contentDescription="장바구니 담기"
 				android:src="@drawable/ic_shopping_bag"

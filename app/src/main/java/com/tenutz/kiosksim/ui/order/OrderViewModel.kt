@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.orhanobut.logger.Logger
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.payment.MenuPayment
 import com.tenutz.kiosksim.data.repository.menu.MenuRepository
 import com.tenutz.kiosksim.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,6 +20,24 @@ class OrderViewModel @Inject constructor(
 
     private val _menus = MutableLiveData<KioskMenusResponse>()
     val menus: LiveData<KioskMenusResponse> = _menus
+
+    private val _menuPayments = MutableLiveData<HashMap<String, MenuPayment>>(HashMap())
+    val menusPayments: LiveData<HashMap<String, MenuPayment>> = _menuPayments
+
+    private val _menuPaymentCount = MutableLiveData(0)
+    val menusPaymentCount: LiveData<Int> = _menuPaymentCount
+
+    fun setMenuPayment(menusPayments: HashMap<String, MenuPayment>) {
+        _menuPayments.value = menusPayments
+        _menuPaymentCount.value = menusPayments.values.count()
+    }
+
+    fun addMenuPayment(menuPayment: MenuPayment) {
+        _menuPayments.value?.get(menuPayment.key)?.let {
+            _menuPayments.value?.put(menuPayment.key, it+menuPayment)
+        } ?: _menuPayments.value?.put(menuPayment.key, menuPayment)
+        _menuPaymentCount.value = menusPayments.value?.values?.count()
+    }
 
     init {
         kioskMenus()

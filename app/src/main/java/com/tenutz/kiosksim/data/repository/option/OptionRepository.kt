@@ -4,16 +4,13 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.CommonCondition
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesChangeRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionCreateRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionMappersResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionOptionGroupsResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionUpdateRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionsDeleteRequest
-import com.tenutz.kiosksim.data.datasource.api.dto.option.OptionsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.option.KioskMenuOptionsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.option.*
 import io.reactivex.rxjava3.core.Single
 
 interface OptionRepository {
+
+    fun menuOptions(menuCode: String, subCategoryCode: String): Single<Result<KioskMenuOptionsResponse>>
 
     fun options(commonCond: CommonCondition? = null): Single<Result<OptionsResponse>>
 

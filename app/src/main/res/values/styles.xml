@@ -67,4 +67,9 @@
         <item name="cornerSizeBottomLeft">6dp</item>
     </style>
 
+    <style name="ShapeAppearanceOverlayFloatingActionButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

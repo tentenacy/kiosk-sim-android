@@ -3,6 +3,7 @@ package com.tenutz.kiosksim.data.datasource.api
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesChangeRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.option.KioskMenuOptionsResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.option.*
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
@@ -10,6 +11,13 @@ import okhttp3.MultipartBody
 import retrofit2.http.*
 
 interface OptionApi {
+
+    @GET("{kioskCode}/main-menus/{menuCode}/options")
+    fun menuOptions(
+        @Path("kioskCode") kioskCode: String,
+        @Path("menuCode") menuCode: String,
+        @Query("subCategoryCode") subCategoryCode: String,
+    ): Single<KioskMenuOptionsResponse>
 
     @GET("/options")
     fun options(@Query("query") query: String? = null): Single<OptionsResponse>

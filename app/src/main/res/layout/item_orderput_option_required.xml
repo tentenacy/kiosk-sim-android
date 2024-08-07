@@ -3,6 +3,13 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools">
 
+	<data>
+
+		<variable
+				name="optionGroupName"
+				type="String" />
+	</data>
+
 	<androidx.constraintlayout.widget.ConstraintLayout
 			android:id="@+id/constraint_iorderput_option_required_container"
 			android:layout_width="match_parent"
@@ -43,8 +50,8 @@
 				app:layout_constraintBottom_toBottomOf="@id/text_iorderput_option_required_title"
 				tools:ignore="HardcodedText" />
 
-		<RadioGroup
-				android:id="@+id/radiogroup_iorderput_option_required"
+		<LinearLayout
+				android:id="@+id/linear_iorderput_option_required"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="15dp"
@@ -56,7 +63,7 @@
 				app:layout_constraintTop_toBottomOf="@+id/text_iorderput_option_required_title"
 				app:layout_constraintEnd_toEndOf="parent">
 
-		</RadioGroup>
+		</LinearLayout>
 
 
 	</androidx.constraintlayout.widget.ConstraintLayout>

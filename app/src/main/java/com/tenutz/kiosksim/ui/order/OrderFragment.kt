@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.orhanobut.logger.Logger
 import com.tenutz.kiosksim.R
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.payment.MenuPayment
 import com.tenutz.kiosksim.databinding.FragmentOrderBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
 import com.tenutz.kiosksim.ui.order.bs.ShoppingBagBottomSheetDialog
@@ -18,11 +23,16 @@ import com.tenutz.kiosksim.utils.ext.navigateToMainFragment
 import com.tenutz.kiosksim.utils.ext.observeOnce
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class OrderFragment: BaseFragment() {
 
     private var _binding: FragmentOrderBinding? = null
     val binding: FragmentOrderBinding get() = _binding!!
+
+    private val badgeDrawable: BadgeDrawable by lazy {
+        BadgeDrawable.create(mainActivity())
+    }
 
     val vm: OrderViewModel by viewModels()
 
@@ -51,29 +61,63 @@ class OrderFragment: BaseFragment() {
 
         binding.vpagerOrder.registerOnPageChangeCallback(onPageChangeCallback)
 
+        initViews()
         setOnClickListeners()
+        observeData()
+    }
+
+    private fun initViews() {
+        badgeDrawable.horizontalOffset = 56
+        badgeDrawable.verticalOffset = 56
+        binding.fabOrderShoppingBag.doOnPreDraw {
+            BadgeUtils.attachBadgeDrawable(badgeDrawable, binding.fabOrderShoppingBag, null);
+        }
+    }
+
+    private fun observeData() {
+
+        vm.menusPaymentCount.observe(viewLifecycleOwner) {
+            badgeDrawable.number = it
+            binding.fabOrderShoppingBag.visibility = if(it > 0) View.VISIBLE else View.INVISIBLE
+        }
 
         vm.menus.observeOnce(viewLifecycleOwner) { menu ->
 
-            if(menu == null) return@observeOnce
+            if (menu == null) return@observeOnce
 
             binding.vpagerOrder.adapter = OrderPagerAdapter(
                 this@OrderFragment,
-                    menu.menusCategories.mapIndexed { index, category ->
-                        index to { OrderTabFragment().apply { arguments = Bundle().apply { putParcelable("category", category) } } }
-                    }.toMap()
+                menu.menusCategories.mapIndexed { index, category ->
+                    index to {
+                        OrderTabFragment().apply {
+                            arguments = Bundle().apply { putParcelable("category", category) }
+                        }
+                    }
+                }.toMap()
             )
 
 
-            TabLayoutMediator(binding.tabOrder, binding.vpagerOrder, object : TabLayoutMediator.TabConfigurationStrategy {
+            TabLayoutMediator(
+                binding.tabOrder,
+                binding.vpagerOrder,
+                object : TabLayoutMediator.TabConfigurationStrategy {
 
-                private val categories = menu.menusCategories.mapIndexed { index, category -> index to category }.toMap()
+                    private val categories =
+                        menu.menusCategories.mapIndexed { index, category -> index to category }.toMap()
 
-                override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
-                    tab.text = categories[position]?.categoryName
-                }
+                    override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
+                        tab.text = categories[position]?.categoryName
+                    }
 
-            }).attach()
+                }).attach()
+        }
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<MenuPayment>("args")?.observe(viewLifecycleOwner) { menuPayment ->
+            vm.addMenuPayment(menuPayment)
+        }
+
+        vm.menusPayments.observe(viewLifecycleOwner) {
+            Logger.d("${it}")
         }
     }
 

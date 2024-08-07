@@ -1,0 +1,62 @@
+﻿<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+				name="args"
+				type="com.tenutz.kiosksim.data.datasource.api.dto.kiosk.option.KioskMenuOptionsResponse.MenuOptionGroup.OptionGroupOption" />
+
+		<import type="com.tenutz.kiosksim.utils.ext.TextExtKt" />
+	</data>
+
+	<LinearLayout
+			android:id="@+id/radiobtn_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+		<RadioButton
+				android:id="@+id/radiobtn"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:button="@null"
+				android:drawableStart="@drawable/checkbox_circle"
+				android:minWidth="0dp"
+				android:minHeight="0dp"
+				android:paddingStart="4dp"
+				android:paddingEnd="20dp"
+				android:paddingVertical="8dp"
+				android:text="@{args.optionName}"
+				android:background="@null"
+				tools:text="ICE"
+				android:textColor="@color/rect_4474"
+				android:textSize="16sp"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:ignore="HardcodedText">
+
+		</RadioButton>
+
+		<TextView
+				android:id="@+id/text_radiobtn_price"
+				style="@style/Text"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:ellipsize="end"
+				android:maxLines="1"
+				android:layout_weight="1"
+				android:gravity="end"
+				android:text='@{"+"+TextExtKt.getToCurrency(args.price)+"원"}'
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				tools:text="+0원"
+				tools:ignore="HardcodedText" />
+
+	</LinearLayout>
+
+</layout>
