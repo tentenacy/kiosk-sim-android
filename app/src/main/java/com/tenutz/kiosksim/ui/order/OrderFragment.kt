@@ -113,7 +113,9 @@ class OrderFragment: BaseFragment() {
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<MenuPayment>("args")?.observe(viewLifecycleOwner) { menuPayment ->
+            if(menuPayment == null) return@observe
             vm.addMenuPayment(menuPayment)
+            findNavController().currentBackStackEntry?.savedStateHandle?.set("args", null)
         }
 
         vm.menusPayments.observe(viewLifecycleOwner) {
@@ -131,7 +133,9 @@ class OrderFragment: BaseFragment() {
                         }
                     }
                 }
-            ).show(childFragmentManager, "shoppingBagDialog")
+            )
+                .apply { arguments = Bundle().apply { putSerializable("menuPayments", vm.menusPayments.value) } }
+                .show(childFragmentManager, "shoppingBagDialog")
         }
         binding.imageOrderHome.setOnClickListener {
             mainActivity().navigateToMainFragment()

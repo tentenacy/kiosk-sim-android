@@ -21,21 +21,28 @@ class OrderViewModel @Inject constructor(
     private val _menus = MutableLiveData<KioskMenusResponse>()
     val menus: LiveData<KioskMenusResponse> = _menus
 
-    private val _menuPayments = MutableLiveData<HashMap<String, MenuPayment>>(HashMap())
-    val menusPayments: LiveData<HashMap<String, MenuPayment>> = _menuPayments
+    private val _menuPayments = MutableLiveData<LinkedHashMap<String, MenuPayment>>(LinkedHashMap())
+    val menusPayments: LiveData<LinkedHashMap<String, MenuPayment>> = _menuPayments
 
     private val _menuPaymentCount = MutableLiveData(0)
     val menusPaymentCount: LiveData<Int> = _menuPaymentCount
 
-    fun setMenuPayment(menusPayments: HashMap<String, MenuPayment>) {
-        _menuPayments.value = menusPayments
-        _menuPaymentCount.value = menusPayments.values.count()
+    private val _totalAmount = MutableLiveData(0)
+    val totalAmount: LiveData<Int> = _totalAmount
+
+    fun updateQuantity(key: String, quantity: Int) {
+        if(quantity == 0) _menuPayments.value?.remove(key)
+        else _menuPayments.value?.get(key)?.quantity = quantity
+        _totalAmount.value = _menuPayments.value?.values?.sumOf { it.totalAmount }
+        _menuPayments.value = _menuPayments.value
+        _menuPaymentCount.value = menusPayments.value?.values?.count()
     }
 
     fun addMenuPayment(menuPayment: MenuPayment) {
         _menuPayments.value?.get(menuPayment.key)?.let {
             _menuPayments.value?.put(menuPayment.key, it+menuPayment)
         } ?: _menuPayments.value?.put(menuPayment.key, menuPayment)
+        _totalAmount.value = _menuPayments.value?.values?.sumOf { it.totalAmount }
         _menuPaymentCount.value = menusPayments.value?.values?.count()
     }
 

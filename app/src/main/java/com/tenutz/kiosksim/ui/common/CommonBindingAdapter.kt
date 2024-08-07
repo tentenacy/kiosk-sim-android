@@ -25,6 +25,12 @@ import com.tenutz.kiosksim.utils.watcher.MinuteTextWatcher
 object CommonBindingAdapter {
 
     @JvmStatic
+    @BindingAdapter("bind:lessQuantity")
+    fun setLess(imageView: ImageView, quantity: Int) {
+        imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, if(quantity > 1) R.drawable.ic_minus else R.drawable.ic_trash))
+    }
+
+    @JvmStatic
     @BindingAdapter("bind:tint")
     fun setTint(imageView: ImageView, color: Int) {
         imageView.imageTintList = ColorStateList.valueOf(color)

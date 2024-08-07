@@ -28,22 +28,30 @@ class OrderPutFragment: BaseFragment() {
             onClickListener = { id, _ ->
                 when(id) {
                     R.id.btn_iorderput_tail -> {
+
+                        val key = listOfNotNull(
+                            args.subCategoryCode,
+                            args.categoryMenu.menuCode,
+                            vm.checkedOptions.value!!.values.joinToString("-") {
+                                it.joinToString("-") { it.optionCode }
+                            },
+                        ).joinToString("-")
+
+                        val price = args.categoryMenu.price
+                        val optionPrice = vm.checkedOptions.value!!.values.sumOf { it.sumOf { it.price } }
+                        val discountPrice = args.categoryMenu.discountedPrice
+
+                        val quantity = vm.quantity.value!!
+
                         val menuPayment = MenuPayment(
-                            listOfNotNull(
-                                args.subCategoryCode,
-                                args.categoryMenu.menuCode,
-                                vm.checkedOptions.value!!.values.joinToString("-") {
-                                    it.joinToString("-") { it.optionCode }
-                                },
-                            ).joinToString("-"),
+                            key,
                                     args.categoryMenu.menuCode,
                             "4",
                             args.categoryMenu.menuName,
                             args.categoryMenu.imageUrl,
-                            args.categoryMenu.price,
-                            (args.categoryMenu.price - args.categoryMenu.discountedPrice + vm.checkedOptions.value!!.values.sumOf { it.sumOf { it.price } }) * vm.quantity.value!!,
-                            args.categoryMenu.discountedPrice * vm.quantity.value!!,
-                            vm.quantity.value!!,
+                            price,
+                            optionPrice,
+                            discountPrice,
                             vm.checkedOptions.value?.let {
                                 var details = ""
                                 for((t, u) in it) {
@@ -57,7 +65,7 @@ class OrderPutFragment: BaseFragment() {
                                 }
                                 details
                             } ?: "",
-                        )
+                        ).apply { this.quantity = quantity }
                         findNavController().previousBackStackEntry?.savedStateHandle?.set("args", menuPayment)
                         findNavController().popBackStack()
                     }
@@ -74,11 +82,11 @@ class OrderPutFragment: BaseFragment() {
             },
             calculateAmount = { updateAmountUi ->
                 vm.mediatorLiveData.observe(viewLifecycleOwner) { (quantity, options) ->
-                    var optionAmount = 0
+                    var optionPrice = 0
                     for(option in options.values) {
-                        optionAmount += option.sumOf { it.price }
+                        optionPrice += option.sumOf { it.price }
                     }
-                    updateAmountUi((args.categoryMenu.price - args.categoryMenu.discountedPrice + optionAmount) * quantity)
+                    updateAmountUi((args.categoryMenu.price + optionPrice - args.categoryMenu.discountedPrice) * quantity)
                 }
             },
         )

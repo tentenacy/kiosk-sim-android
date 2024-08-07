@@ -3,6 +3,15 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools">
 
+	<data>
+
+		<variable
+				name="vm"
+				type="com.tenutz.kiosksim.ui.order.OrderViewModel" />
+
+		<import type="com.tenutz.kiosksim.utils.ext.TextExtKt" />
+	</data>
+
 	<androidx.constraintlayout.widget.ConstraintLayout
 			android:id="@+id/constraint_bsshopping_bag_container"
 			android:layout_width="match_parent"
@@ -59,7 +68,8 @@
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
 				android:stateListAnimator="@null"
-				android:text="18,500원 주문하기"
+				android:text='@{TextExtKt.getToCurrency(vm.totalAmount)+"원 주문하기"}'
+				tools:text="18,500원 주문하기"
 				android:textSize="18sp"
 				android:elevation="4dp"
 				app:layout_constraintBottom_toBottomOf="parent"
