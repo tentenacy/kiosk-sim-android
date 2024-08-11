@@ -25,7 +25,11 @@ class MenuReviewsViewModel @Inject constructor(
 
     val empty = MutableLiveData(true)
 
-    fun menuReviews() {
+    init {
+        menuReviews()
+    }
+
+    private fun menuReviews() {
         reviewPagingRepository.menuReviews(CommonCondition())
             .observeOn(AndroidSchedulers.mainThread())
             .cachedIn(viewModelScope)

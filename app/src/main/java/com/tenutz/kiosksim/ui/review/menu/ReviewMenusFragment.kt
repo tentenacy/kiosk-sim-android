@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.tenutz.kiosksim.R
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskReviewMenusResponse
 import com.tenutz.kiosksim.databinding.FragmentReviewMenusBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
+import com.tenutz.kiosksim.ui.review.menu.args.ReviewMenuArgs
 import com.tenutz.kiosksim.utils.ext.observeOnce
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,10 +23,11 @@ class ReviewMenusFragment: BaseFragment() {
     private val vm: ReviewMenusViewModel by viewModels()
 
     private val adapter: ReviewMenusAdapter by lazy {
-        ReviewMenusAdapter { id, item ->
-            when(id) {
+        ReviewMenusAdapter {
+            when(it.first) {
                 R.id.card_ireview_menus -> {
-//                    findNavController().navigate(ReviewMenusFragmentDirections.)
+                    val item = it.second as KioskReviewMenusResponse.OrderMenu
+                    findNavController().navigate(ReviewMenusFragmentDirections.actionReviewMenusFragmentToMenuReviewRatingFragment(ReviewMenuArgs.of(item)))
                 }
             }
         }.apply { setHasStableIds(true) }

@@ -9,19 +9,19 @@ import com.tenutz.kiosksim.ui.base.BaseViewHolder
 
 class ReviewMenusViewHolder(
     val binding: ItemReviewMenusBinding,
-    private val onClickListener: (Int, Any?) -> Unit,
+    private val onClickListener: (Pair<Int, Any?>) -> Unit,
 ): BaseViewHolder<KioskReviewMenusResponse.OrderMenu>(binding.root) {
 
     override fun bind(position: Int, item: KioskReviewMenusResponse.OrderMenu) {
         binding.args = item
         binding.cardIreviewMenus.setOnClickListener {
-            onClickListener(it.id, item)
+            onClickListener(it.id to item)
         }
     }
 }
 
 class ReviewMenusAdapter(
-    private val onClickListener: (Int, Any?) -> Unit,
+    private val onClickListener: (Pair<Int, Any?>) -> Unit,
 ): BaseRecyclerView<KioskReviewMenusResponse.OrderMenu, ReviewMenusViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewMenusViewHolder {

@@ -51,12 +51,6 @@ class MenuReviewsTabFragment: BaseFragment() {
     @field:UnitReference(Units.DP_8)
     lateinit var dividerItemDecoration: DividerItemDecoration
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        vm.menuReviews()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
