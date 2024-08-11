@@ -92,7 +92,7 @@
 				tools:ignore="HardcodedText" />
 
 		<Button
-				android:id="@+id/btn_coupon"
+				android:id="@+id/btn_bscoupon"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				style="@style/Button"

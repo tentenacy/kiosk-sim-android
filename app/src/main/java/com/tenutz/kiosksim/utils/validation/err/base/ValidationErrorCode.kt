@@ -29,4 +29,5 @@ enum class ValidationErrorCode(
     INVALID_OPTION_GROUP_NAME("VALID-022", "옵션그룹명은 한글만 입력 가능하며, 200자 이내여야 합니다."),
     INVALID_REVIEW_REPLY_CONTENT("VALID-023", "평가답변은 4000자 이내여야 합니다."),
     INVALID_STORE_NAME("VALID-024", "매장명은 한글만 입력 가능하며, 50자 이내여야 합니다."),
+    INVALID_COUPON_CODE("VALID-025", "쿠폰번호는 네 자리씩 '-'로 구분된 16자리 숫자여야 합니다."),
 }

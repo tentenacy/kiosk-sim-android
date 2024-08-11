@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class MenuPayment(
     var key: String,
+    val subCategoryCode: String,
     val itemCode: String,
     val itemType: String,
     val itemName: String,
@@ -38,6 +39,7 @@ data class MenuPayment(
         if(menuPayment.key != this.key) return this
         return MenuPayment(
             this.key,
+            this.subCategoryCode,
             this.itemCode,
             this.itemType,
             this.itemName,

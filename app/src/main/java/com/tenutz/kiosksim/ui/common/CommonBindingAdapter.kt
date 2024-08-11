@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.tenutz.kiosksim.R
+import com.tenutz.kiosksim.utils.ext.dp
 import com.tenutz.kiosksim.utils.ext.toPx
 import com.tenutz.kiosksim.utils.type.SocialType
 import com.tenutz.kiosksim.utils.watcher.BusinessNumberTextWatcher
@@ -23,6 +24,22 @@ import com.tenutz.kiosksim.utils.watcher.MinuteTextWatcher
 
 
 object CommonBindingAdapter {
+
+    @JvmStatic
+    @BindingAdapter("bind:layoutWidth")
+    fun setLayoutWidth(view: View, dimen: Float) {
+        val layoutParams = view.layoutParams
+        layoutParams.width = dimen.dp
+        view.layoutParams = layoutParams
+    }
+
+    @JvmStatic
+    @BindingAdapter("bind:layoutHeight")
+    fun setLayoutHeight(layout: View, dimen: Float) {
+        val layoutParams = layout.layoutParams
+        layoutParams.height = dimen.dp
+        layout.layoutParams = layoutParams
+    }
 
     @JvmStatic
     @BindingAdapter("bind:lessQuantity")

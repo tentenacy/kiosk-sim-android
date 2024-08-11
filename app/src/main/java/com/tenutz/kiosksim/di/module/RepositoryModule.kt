@@ -15,6 +15,8 @@ import com.tenutz.kiosksim.data.repository.option.OptionRepository
 import com.tenutz.kiosksim.data.repository.option.OptionRepositoryImpl
 import com.tenutz.kiosksim.data.repository.optiongroup.OptionGroupRepository
 import com.tenutz.kiosksim.data.repository.optiongroup.OptionGroupRepositoryImpl
+import com.tenutz.kiosksim.data.repository.payment.PaymentRepository
+import com.tenutz.kiosksim.data.repository.payment.PaymentRepositoryImpl
 import com.tenutz.kiosksim.data.repository.sharing.SharedRepository
 import com.tenutz.kiosksim.data.repository.sharing.SharedRepositoryImpl
 import com.tenutz.kiosksim.data.repository.store.StoreRepository
@@ -105,6 +107,11 @@ abstract class RepositoryModule {
     abstract fun provideTermsRepository(
         repository: TermsRepositoryImpl
     ): TermsRepository
+
+    @Binds
+    abstract fun providePaymentRepository(
+        repository: PaymentRepositoryImpl
+    ): PaymentRepository
 
     @Binds
     @Singleton

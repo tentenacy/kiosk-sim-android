@@ -45,7 +45,8 @@ class OrderPutFragment: BaseFragment() {
 
                         val menuPayment = MenuPayment(
                             key,
-                                    args.categoryMenu.menuCode,
+                            args.subCategoryCode,
+                            args.categoryMenu.menuCode,
                             "4",
                             args.categoryMenu.menuName,
                             args.categoryMenu.imageUrl,

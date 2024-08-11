@@ -12,11 +12,14 @@ import com.jakewharton.rxbinding4.widget.textChanges
 import com.orhanobut.logger.Logger
 import com.tenutz.kiosksim.R
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.addTo
 import java.util.concurrent.TimeUnit
 
 
 class CouponNumberTextWatcher(private val editText: EditText) : TextWatcher {
 
+    private val compositeDisposable = CompositeDisposable()
     private var isBack = false
     private var lastSelectionStart = -1
 
@@ -72,7 +75,7 @@ class CouponNumberTextWatcher(private val editText: EditText) : TextWatcher {
                     )
                 }
                 colorAnimation.start()
-            }
+            }.addTo(compositeDisposable)
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

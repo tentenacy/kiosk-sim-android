@@ -217,6 +217,16 @@ object Validator {
         }
     }
 
+    fun validateCouponCode(couponCode: String, required: Boolean = false) {
+        if(required) validateRequiredInput(couponCode)
+        if(couponCode.isBlank()) return
+        validateTextData(couponCode)
+        if(!"""[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}""".toRegex().matches(couponCode) || couponCode.length != 19) {
+            throw CouponCodeValidationException()
+        }
+    }
+
+
     fun validate(onValidation: () -> Unit, onSuccess: () -> Unit, onFailure: (ValidationException) -> Unit) {
         try {
             onValidation()

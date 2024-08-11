@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
@@ -17,6 +18,7 @@ import com.tenutz.kiosksim.R
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.payment.MenuPayment
 import com.tenutz.kiosksim.databinding.FragmentOrderBinding
 import com.tenutz.kiosksim.ui.base.BaseFragment
+import com.tenutz.kiosksim.ui.order.args.KioskMenuPaymentsArgs
 import com.tenutz.kiosksim.ui.order.bs.ShoppingBagBottomSheetDialog
 import com.tenutz.kiosksim.utils.ext.mainActivity
 import com.tenutz.kiosksim.utils.ext.navigateToMainFragment
@@ -35,6 +37,7 @@ class OrderFragment: BaseFragment() {
     }
 
     val vm: OrderViewModel by viewModels()
+    val args: OrderFragmentArgs by navArgs()
 
     private val onPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
@@ -129,7 +132,20 @@ class OrderFragment: BaseFragment() {
                 onClickListener = { id, _ ->
                     when(id) {
                         R.id.btn_bsshopping_bag -> {
-                            findNavController().navigate(OrderFragmentDirections.actionOrderFragmentToPaymentFragment())
+                            vm.menus.value!!.menusCategories.getOrNull(0)?.let {
+                                findNavController().navigate(
+                                    OrderFragmentDirections.actionOrderFragmentToPaymentFragment(
+                                        KioskMenuPaymentsArgs(
+                                            vm.menusPayments.value!!.values.toList(),
+                                            it.mainCategoryCode,
+                                            it.middleCategoryCode,
+                                            args.orderType.value,
+                                            vm.totalAmount.value!!,
+                                    )
+                                )
+                                )
+                            }
+
                         }
                     }
                 }

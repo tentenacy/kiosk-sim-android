@@ -28,8 +28,6 @@ class OrderCompleteFragment : BaseFragment() {
     private var _binding: FragmentOrderCompleteBinding? = null
     val binding: FragmentOrderCompleteBinding get() = _binding!!
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

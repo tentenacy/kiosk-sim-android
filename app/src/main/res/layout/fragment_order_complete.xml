@@ -3,6 +3,11 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools">
 
+	<data>
+
+		<import type="com.tenutz.kiosksim.data.datasource.sharedpref.Order" />
+ 	</data>
+
 	<androidx.constraintlayout.widget.ConstraintLayout
 			android:id="@+id/constraint_main_container"
 			android:layout_width="match_parent"
@@ -79,7 +84,8 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				style="@style/BoldText"
-				android:text="257번"
+				android:text='@{Order.INSTANCE.callNumber+"번"}'
+				tools:text="257번"
 				android:textColor="@color/rect_4477"
 				android:textSize="18sp"
 				android:layout_marginTop="5dp"

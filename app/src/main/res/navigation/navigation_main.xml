@@ -124,6 +124,8 @@
 				app:popExitAnim="@anim/to_right"
 				app:popUpTo="@id/mainFragment"
 				app:popUpToInclusive="false"/>
+
+		<argument android:name="menuPayments" app:argType="com.tenutz.kiosksim.ui.order.args.KioskMenuPaymentsArgs" />
 	</fragment>
 	<fragment
 			android:id="@+id/orderCompleteFragment"

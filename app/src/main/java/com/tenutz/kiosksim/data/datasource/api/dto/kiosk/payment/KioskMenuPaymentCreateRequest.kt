@@ -8,7 +8,6 @@ data class KioskMenuPaymentCreateRequest(
     val menuPayments: List<MenuPayment>,
     val mainCategoryCode: String,
     val middleCategoryCode: String,
-    val subCategoryCode: String,
     val orderType: String,
     val paymentCode: String,
     val creditCardCompanyCode: String?,
