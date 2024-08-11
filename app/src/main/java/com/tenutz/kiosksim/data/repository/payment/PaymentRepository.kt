@@ -7,4 +7,6 @@ import io.reactivex.rxjava3.core.Single
 interface PaymentRepository {
 
     fun createMenusPayments(request: KioskMenuPaymentCreateRequest): Single<Result<KioskMenuPaymentCreateResponse>>
+
+    fun deleteMenusPayments(callNumber: String,): Single<Result<Unit>>
 }

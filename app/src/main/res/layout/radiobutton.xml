@@ -15,6 +15,7 @@
 			android:id="@+id/radiobtn_container"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:paddingVertical="5dp"
 			android:orientation="horizontal">
 
 		<RadioButton
@@ -26,7 +27,6 @@
 				android:drawableStart="@drawable/checkbox_circle"
 				android:minWidth="0dp"
 				android:minHeight="0dp"
-				android:paddingStart="4dp"
 				android:paddingEnd="20dp"
 				android:paddingVertical="8dp"
 				android:text="@{args.optionName}"

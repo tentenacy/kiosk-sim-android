@@ -25,6 +25,7 @@
 				android:maxLines="1"
 				android:textSize="16sp"
 				android:text="HOT/ICE 선택"
+				android:fontFamily="@font/suit_bold"
 				android:layout_marginTop="20dp"
 				app:layout_constraintTop_toTopOf="parent"
 				app:layout_constraintStart_toStartOf="parent"

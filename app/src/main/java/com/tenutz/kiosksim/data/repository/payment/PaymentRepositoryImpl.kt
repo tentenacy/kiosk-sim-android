@@ -23,4 +23,16 @@ class PaymentRepositoryImpl @Inject constructor(
                     RetryPolicyConstant.SERVICE_UNAVAILABLE,
                     RetryPolicyConstant.ACCESS_TOKEN_EXPIRED,
                 ) { Result.failure(it) })
+
+    override fun deleteMenusPayments(callNumber: String): Single<Result<Unit>> =
+        SMSApi.deleteMenusPayments(User.kioskCode, callNumber)
+            .toSingle {  }
+            .map { Result.success(it) }
+            .compose(
+                applyRetryPolicy(
+                    RetryPolicyConstant.TIMEOUT,
+                    RetryPolicyConstant.NETWORK,
+                    RetryPolicyConstant.SERVICE_UNAVAILABLE,
+                    RetryPolicyConstant.ACCESS_TOKEN_EXPIRED,
+                ) { Result.failure(it) })
 }

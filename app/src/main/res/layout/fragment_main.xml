@@ -141,6 +141,25 @@
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
 
+		<com.google.android.material.floatingactionbutton.FloatingActionButton
+				android:id="@+id/fab_main_cancel_order"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="20dp"
+				android:layout_marginBottom="20dp"
+				app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayFloatingActionButton"
+				android:backgroundTint="@color/white"
+				android:contentDescription="최근 주문 취소"
+				android:src="@drawable/ic_cancel_order"
+				app:layout_anchor="@id/constraint_order_container"
+				app:layout_anchorGravity="end|bottom"
+				app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:maxImageSize="30dp"
+				app:tint="@color/rect_4476"
+				tools:ignore="HardcodedText" />
+
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

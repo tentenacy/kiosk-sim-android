@@ -4,5 +4,5 @@ import com.chibatching.kotpref.KotprefModel
 
 object Order: KotprefModel() {
     var callNumber by stringPref()
-    var orderedAt by longPref()
+    var orderedAt by longPref(0L)
 }

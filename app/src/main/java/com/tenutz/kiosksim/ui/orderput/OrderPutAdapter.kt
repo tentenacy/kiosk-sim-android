@@ -59,9 +59,7 @@ sealed class OrderPutViewHolder(
                     val checkedOption = optionGroupOptions.getOrDefault(optionGroupOption.optionCode, item.optionGroupOptions[0])
                     onRequiredCheckedChangedListener(item.optionGroupCode to checkedOption)
                 }
-                binding.linearIorderputOptionRequired.addView(
-                    radioButtonBinding.root
-                )
+                binding.linearIorderputOptionRequired.addView(radioButtonBinding.root)
                 radioButtons[optionGroupOption.optionCode] = radioButtonBinding
             }
 
@@ -81,6 +79,7 @@ sealed class OrderPutViewHolder(
             binding.optionGroupName = item.optionGroupName
 
             val layoutInflater = LayoutInflater.from(this)
+
 
             item.optionGroupOptions?.forEach { optionGroupOption ->
                 val checkboxBinding = CheckboxBinding.inflate(layoutInflater).apply {
