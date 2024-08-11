@@ -3,6 +3,15 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools">
 
+	<data>
+
+		<variable
+				name="vm"
+				type="com.tenutz.kiosksim.ui.review.menu.ReviewMenusViewModel" />
+
+		<import type="android.view.View" />
+	</data>
+
 	<androidx.constraintlayout.widget.ConstraintLayout
 			android:id="@+id/constraint_review_menus_container"
 			android:layout_width="match_parent"
@@ -62,52 +71,42 @@
 				app:layout_constraintStart_toStartOf="parent"
 				tools:ignore="HardcodedText" />
 
-		<EditText
-				android:id="@+id/edit_review_menus_search"
+		<ImageView
+				android:id="@+id/image_review_menus_warning"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:contentDescription="키오스크 코드 관련 주의사항"
+				android:src="@drawable/ic_warning"
+				android:layout_marginTop="10dp"
+				app:layout_constraintStart_toStartOf="@+id/text_review_menus_title_desc"
+				app:layout_constraintTop_toBottomOf="@+id/text_review_menus_title_desc"
+				tools:ignore="HardcodedText" />
+
+		<TextView
+				android:id="@+id/text_review_menus_warning"
 				style="@style/Text"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:layout_marginHorizontal="20dp"
-				android:layout_marginTop="18dp"
-				android:background="@drawable/radius_8dp"
-				android:backgroundTint="@color/rect_4482"
+				android:layout_marginStart="2dp"
+				android:layout_marginEnd="20dp"
 				android:fontFamily="@font/suit_regular"
-				android:gravity="start"
-				android:hint="메뉴명 검색"
-				android:importantForAutofill="no"
-				android:inputType="text"
-				android:maxLines="1"
-				android:padding="8dp"
-				android:paddingStart="46dp"
-				android:paddingEnd="10dp"
-				android:textColor="@color/rect_4474"
-				android:textColorHint="@color/rect_4480"
-				android:textSize="15sp"
+				android:text="1일 내 최근 주문 건에 대한 메뉴만 평가 가능합니다. "
+				android:textColor="@color/rect_4477"
+				android:textSize="14sp"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/text_review_menus_title_desc"
+				app:layout_constraintStart_toEndOf="@id/image_review_menus_warning"
+				app:layout_constraintTop_toTopOf="@id/image_review_menus_warning"
 				tools:ignore="HardcodedText" />
-
-		<ImageView
-				android:layout_width="26dp"
-				android:layout_height="26dp"
-				android:layout_marginStart="10dp"
-				android:contentDescription="돋보기 이미지"
-				android:src="@drawable/ic_search"
-				app:layout_constraintBottom_toBottomOf="@id/edit_review_menus_search"
-				app:layout_constraintStart_toStartOf="@id/edit_review_menus_search"
-				app:layout_constraintTop_toTopOf="@id/edit_review_menus_search"
-				tools:ignore="HardcodedText" />
-
+		
 		<View
 				android:id="@+id/view_review_menus_divider_1"
 				android:layout_width="0dp"
 				android:layout_height="8dp"
 				android:background="@color/rect_4485"
+				android:layout_marginTop="20dp"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/edit_review_menus_search"
-				android:layout_marginTop="20dp" />
+				app:layout_constraintTop_toBottomOf="@+id/text_review_menus_warning" />
 
 		<androidx.recyclerview.widget.RecyclerView
 				android:id="@+id/recycle_review_menus"
@@ -125,6 +124,22 @@
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@id/view_review_menus_divider_1" />
 
+		<TextView
+				android:id="@+id/text_review_menus_empty"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:fontFamily="@font/suit_regular"
+				android:text="목록이 없습니다."
+				android:textColor="@color/rect_4481"
+				android:textSize="16sp"
+				android:visibility="@{vm.empty ? View.VISIBLE : View.INVISIBLE}"
+				app:layout_constraintBottom_toBottomOf="@id/recycle_review_menus"
+				app:layout_constraintEnd_toEndOf="@id/recycle_review_menus"
+				app:layout_constraintStart_toStartOf="@id/recycle_review_menus"
+				app:layout_constraintTop_toTopOf="@id/recycle_review_menus"
+				tools:ignore="HardcodedText"
+				tools:visibility="invisible" />
 
 
 	</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import com.tenutz.kiosksim.data.datasource.api.SMSApi
 import com.tenutz.kiosksim.data.datasource.api.dto.common.CommonCondition
 import com.tenutz.kiosksim.data.datasource.paging.entity.MenuReviews
 import com.tenutz.kiosksim.data.datasource.paging.source.mapper.ReviewsMapper
+import com.tenutz.kiosksim.data.datasource.sharedpref.User
 import com.tenutz.kiosksim.utils.constant.RetryPolicyConstant
 import com.tenutz.kiosksim.utils.ext.applyRetryPolicy
 import com.tenutz.kiosksim.utils.ext.toDateTimeFormat
@@ -28,6 +29,7 @@ class MenuReviewsPagingSource(
     override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, MenuReviews.MenuReview>> {
         val position = params.key ?: 0
         return SMSApi.menuReviews(
+            User.kioskCode,
             page = position,
             size = params.loadSize,
             dateFrom = commonCond.dateFrom.toDateTimeFormat(),

@@ -11,14 +11,14 @@ import retrofit2.http.Path
 
 interface PaymentApi {
 
-    @POST("{kioskCode}/users/main-menus/payments")
+    @POST("{kioskCode}/users/payments")
     fun createMenusPayments(
         @Path("kioskCode") kioskCode: String,
         @Body request: KioskMenuPaymentCreateRequest
     ): Single<KioskMenuPaymentCreateResponse>
 
 
-    @HTTP(method = "DELETE", path = "{kioskCode}/users/main-menus/payments/call-numbers/{callNumber}", hasBody = true)
+    @HTTP(method = "DELETE", path = "{kioskCode}/users/payments/call-numbers/{callNumber}", hasBody = true)
     fun deleteMenusPayments(
         @Path("kioskCode") kioskCode: String,
         @Path("callNumber") callNumber: String,

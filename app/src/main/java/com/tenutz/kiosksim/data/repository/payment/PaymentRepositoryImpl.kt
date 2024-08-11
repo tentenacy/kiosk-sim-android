@@ -25,7 +25,7 @@ class PaymentRepositoryImpl @Inject constructor(
                 ) { Result.failure(it) })
 
     override fun deleteMenusPayments(callNumber: String): Single<Result<Unit>> =
-        SMSApi.deleteMenusPayments(User.kioskCode, callNumber)
+        SMSApi.deleteMenusPayments(User.kioskCode, callNumber.takeUnless { it.isEmpty() } ?: "0000")
             .toSingle {  }
             .map { Result.success(it) }
             .compose(

@@ -33,7 +33,6 @@ data class MenuReviews(
         val createdBy: String?,
         val createdAt: Date?,
         val content: String?,
-        val keyword: Int,
         val level: Int,
         val rating: Int,
         val sno: Int,

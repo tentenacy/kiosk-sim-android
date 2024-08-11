@@ -1,6 +1,8 @@
 package com.tenutz.kiosksim.data.datasource.api
 
 import com.tenutz.kiosksim.data.datasource.api.dto.common.PageResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review.KioskMenuReviewsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review.KioskStoreReviewsResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.store.*
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
@@ -92,8 +94,9 @@ interface StoreApi {
         @Query("queryType") queryType: String? = null,
     ): Single<StatisticsSalesTotalByTimeResponse>
 
-    @GET("/stores/reviews")
+    @GET("{kioskCode}/reviews")
     fun storeReviews(
+        @Path("kioskCode") kioskCode: String,
         @Query("page") page: Int? = null,
         @Query("size") size: Int? = null,
         @Query("sort") sort: String? = "createdDttm,desc",
@@ -101,7 +104,7 @@ interface StoreApi {
         @Query("dateTo") dateTo: String? = null,
         @Query("query") query: String? = null,
         @Query("queryType") queryType: String? = null,
-    ): Single<PageResponse<StoreReviewsResponse>>
+    ): Single<PageResponse<KioskStoreReviewsResponse>>
 
     @POST("/stores/reviews/{reviewSeq}/replies")
     fun createStoreReviewReply(
@@ -118,8 +121,9 @@ interface StoreApi {
     @HTTP(method = "DELETE", path = "/stores/reviews/replies/{replySeq}", hasBody = true)
     fun deleteStoreReviewReply(@Path("replySeq") replySeq: Long): Completable
 
-    @GET("/stores/menus/reviews")
+    @GET("{kioskCode}/main-menus/reviews")
     fun menuReviews(
+        @Path("kioskCode") kioskCode: String,
         @Query("page") page: Int? = null,
         @Query("size") size: Int? = null,
         @Query("sort") sort: String? = "createdDttm,desc",
@@ -127,7 +131,7 @@ interface StoreApi {
         @Query("dateTo") dateTo: String? = null,
         @Query("query") query: String? = null,
         @Query("queryType") queryType: String? = null,
-    ): Single<PageResponse<MenuReviewsResponse>>
+    ): Single<PageResponse<KioskMenuReviewsResponse>>
 
     @POST("/stores/menus/reviews/{reviewSeq}/replies")
     fun createMenuReviewReply(

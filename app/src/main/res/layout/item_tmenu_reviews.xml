@@ -6,12 +6,12 @@
 
     <data>
 
-<!--        <variable-->
-<!--            name="args"-->
-<!--            type="com.tenutz.kiosksim.data.datasource.paging.entity.MenuReviews.MenuReview" />-->
+        <variable
+            name="args"
+            type="com.tenutz.kiosksim.data.datasource.paging.entity.MenuReviews.MenuReview" />
 
-<!--        <import type="android.view.View" />-->
-<!--        <import type="com.tenutz.kiosksim.utils.ext.TimeExtKt" />-->
+        <import type="android.view.View" />
+        <import type="com.tenutz.kiosksim.utils.ext.TimeExtKt" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        android:text="@{args.createdBy}"-->
         <TextView
             android:id="@+id/text_itmenu_reviews_created_by"
             style="@style/Text"
@@ -30,11 +29,11 @@
             android:fontFamily="@font/suit_bold"
             android:textColor="@color/rect_4474"
             android:textSize="14sp"
+            android:text="@{args.createdBy}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="김길동" />
 
-<!--        android:text="@{TimeExtKt.toDateFormatKr(args.createdAt)}"-->
         <TextView
             android:id="@+id/text_itmenu_reviews_created_at"
             style="@style/Text"
@@ -44,11 +43,11 @@
             android:fontFamily="@font/suit_regular"
             android:textColor="@color/rect_4480"
             android:textSize="12sp"
+            android:text="@{TimeExtKt.toDateFormatKr(args.createdAt)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_itmenu_reviews_created_by"
             tools:text="2022.08.30(화)" />
 
-<!--        bind:rating="@{args.rating}"-->
         <ImageView
             android:id="@+id/image_itmenu_reviews_rating"
             android:layout_width="wrap_content"
@@ -56,12 +55,12 @@
             tools:src="@drawable/ic_star_5"
             android:layout_marginEnd="20dp"
             android:contentDescription="별점"
+            bind:rating="@{args.rating}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_itmenu_reviews_created_by"
             app:layout_constraintBottom_toBottomOf="@id/text_itmenu_reviews_created_at"
             tools:ignore="HardcodedText" />
 
-<!--        android:text="@{args.menuName}"-->
         <TextView
             android:id="@+id/text_itmenu_reviews_menu_name"
             style="@style/Text"
@@ -77,12 +76,12 @@
             android:paddingEnd="10dp"
             android:textColor="@color/rect_4474"
             android:textSize="15sp"
+            android:text="@{args.menuName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_itmenu_reviews_created_at"
             tools:text="아메리카노" />
 
-<!--        bind:showImage="@{args.imageUrl}"-->
         <ImageView
             android:id="@+id/image_itmenu_reviews_menu"
             android:layout_width="30dp"
@@ -90,12 +89,13 @@
             android:layout_marginStart="10dp"
             android:contentDescription="메뉴 썸네일 이미지"
             android:src="@drawable/placeholder_logo"
+            bind:showImage="@{args.imageUrl}"
+            bind:imageRadius="@{8}"
             app:layout_constraintBottom_toBottomOf="@id/text_itmenu_reviews_menu_name"
             app:layout_constraintStart_toStartOf="@id/text_itmenu_reviews_menu_name"
             app:layout_constraintTop_toTopOf="@id/text_itmenu_reviews_menu_name"
             tools:ignore="HardcodedText" />
 
-<!--        android:text="@{args.content}"-->
         <kr.co.prnd.readmore.ReadMoreTextView
                 android:id="@+id/text_itmenu_reviews_content"
                 style="@style/Text"
@@ -107,6 +107,7 @@
                 android:fontFamily="@font/suit_regular"
                 android:textColor="@color/rect_4474"
                 android:textSize="14sp"
+                android:text="@{args.content}"
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +118,6 @@
                 tools:text="신랑이 커피는 카누라기에 주문했고~ 향긋하고 깔끔하니 맛있어요.. 회사에서 한잔하게 주문했어요~ 가격도 좋고 향도 좋고~ 좋아요~신랑이 커피는 카누라기에 주문했고~ 향긋하고 깔끔하니 맛있어요.. 회사에서 한잔하게 주문했어요~ 가격도 좋고 향도 좋고~ 좋아요~"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
-<!--        android:visibility="@{args.menuReviewReply != null ? View.VISIBLE : View.GONE}"-->
         <ImageView
                 android:id="@+id/image_itmenu_reviews_reply"
                 android:layout_width="11dp"
@@ -126,12 +126,11 @@
                 android:src="@drawable/ic_reply"
                 android:contentDescription="리뷰 답글 화살표"
                 android:layout_marginTop="2.5dp"
+                android:visibility="@{args.menuReviewReply != null ? View.VISIBLE : View.GONE}"
                 app:layout_constraintStart_toStartOf="@id/text_itmenu_reviews_content"
                 app:layout_constraintTop_toTopOf="@+id/text_itmenu_reviews_reply_content"
                 tools:ignore="HardcodedText" />
 
-<!--        android:text='@{args.menuReviewReply != null ? args.menuReviewReply.content : ""}'-->
-<!--        android:visibility="@{args.menuReviewReply != null ? View.VISIBLE : View.GONE}"-->
         <TextView
                 android:id="@+id/text_itmenu_reviews_reply_content"
                 style="@style/Text"
@@ -144,6 +143,8 @@
                 android:fontFamily="@font/suit_regular"
                 android:textColor="@color/rect_4474"
                 android:textSize="14sp"
+                android:text='@{args.menuReviewReply != null ? args.menuReviewReply.content : ""}'
+                android:visibility="@{args.menuReviewReply != null ? View.VISIBLE : View.GONE}"
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image_itmenu_reviews_reply"

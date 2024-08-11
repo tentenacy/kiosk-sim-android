@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 _timeRemaining.value = it
-                if(it < 0) Order.clear()
+                if(it < 0) Order.orderedAt = 0L
             }.addTo(compositeDisposable)
     }
 
@@ -62,7 +62,7 @@ class MainViewModel @Inject constructor(
                         val callNumber = Order.callNumber
 
                         _timeRemaining.value = -1
-                        Order.clear()
+                        Order.orderedAt = 0L
 
                         viewEvent(EVENT_TOAST to "(주문번호 ${callNumber}번) 주문이 취소되었습니다.")
                     },

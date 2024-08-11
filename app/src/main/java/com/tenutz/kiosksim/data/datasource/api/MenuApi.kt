@@ -4,6 +4,7 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesC
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskReviewMenusResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.menu.*
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
@@ -163,4 +164,10 @@ interface MenuApi {
         @Path("mainMenuCd") mainMenuCd: String,
         @Body request: OptionGroupPrioritiesChangeRequest,
     ): Single<Unit>
+
+    @GET("{kioskCode}/users/payments/call-numbers/{callNumber}/main-menus")
+    fun orderMenus(
+        @Path("kioskCode") kioskCode: String,
+        @Path("callNumber") callNumber: String,
+    ): Single<KioskReviewMenusResponse>
 }

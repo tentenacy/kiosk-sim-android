@@ -6,6 +6,7 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesC
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskReviewMenusResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.menu.*
 import com.tenutz.kiosksim.data.datasource.sharedpref.User
 import com.tenutz.kiosksim.utils.constant.RetryPolicyConstant
@@ -327,6 +328,17 @@ class MenuRepositoryImpl @Inject constructor(
             mainMenuCd,
             request,
         )
+            .map { Result.success(it) }
+            .compose(
+                applyRetryPolicy(
+                    RetryPolicyConstant.TIMEOUT,
+                    RetryPolicyConstant.NETWORK,
+                    RetryPolicyConstant.SERVICE_UNAVAILABLE,
+                    RetryPolicyConstant.ACCESS_TOKEN_EXPIRED,
+                ) { Result.failure(it) })
+
+    override fun orderMenus(callNumber: String): Single<Result<KioskReviewMenusResponse>> =
+        SMSApi.orderMenus(User.kioskCode, callNumber.takeUnless { it.isEmpty() } ?: "0000")
             .map { Result.success(it) }
             .compose(
                 applyRetryPolicy(

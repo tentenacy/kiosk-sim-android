@@ -142,11 +142,27 @@
 			android:id="@+id/reviewsFragment"
 			android:name="com.tenutz.kiosksim.ui.review.ReviewsFragment"
 			android:label="ReviewsFragment"
-			tools:layout="@layout/fragment_reviews" />
+			tools:layout="@layout/fragment_reviews" >
+		<action
+				android:id="@+id/action_reviewsFragment_to_reviewMenusFragment"
+				app:destination="@id/reviewMenusFragment"
+				app:enterAnim="@anim/from_right"
+				app:exitAnim="@anim/to_left"
+				app:popEnterAnim="@anim/from_left"
+				app:popExitAnim="@anim/to_right" />
+	</fragment>
 	<action android:id="@+id/action_global_accessFragment"
 			app:destination="@id/accessFragment"
 			app:enterAnim="@anim/to_left"
 			app:exitAnim="@anim/from_right"
 			app:popEnterAnim="@anim/to_right"
 			app:popExitAnim="@anim/from_left" />
+	<fragment
+			android:id="@+id/reviewMenusFragment"
+			android:name="com.tenutz.kiosksim.ui.review.menu.ReviewMenusFragment"
+			android:label="ReviewMenusFragment"
+			tools:layout="@layout/fragment_review_menus">
+
+<!--		<argument android:name="args" app:argType="com.tenutz.kiosksim.ui.review.menu.args.ReviewMenuArgs" />-->
+	</fragment>
 </navigation>

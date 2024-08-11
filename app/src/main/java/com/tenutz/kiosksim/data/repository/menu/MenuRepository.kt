@@ -5,6 +5,7 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupPrioritiesC
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskReviewMenusResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.menu.*
 import io.reactivex.rxjava3.core.Single
 
@@ -100,4 +101,8 @@ interface MenuRepository {
         mainMenuCd: String,
         request: OptionGroupPrioritiesChangeRequest,
     ): Single<Result<Unit>>
+
+    fun orderMenus(
+        callNumber: String,
+    ): Single<Result<KioskReviewMenusResponse>>
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+				name="vm"
+				type="com.tenutz.kiosksim.ui.review.menu.MenuReviewsViewModel" />
+
+		<import type="android.view.View" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraint_tmenu_reviews_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+
+		<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler_tmenu_reviews"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+				android:clipToPadding="false"
+				android:paddingBottom="84dp"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:listitem="@layout/overview_item_tmenu_reviews"
+				tools:itemCount="1" />
+
+		<TextView
+				android:id="@+id/text_tmenu_reviews_empty"
+				style="@style/Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:fontFamily="@font/suit_regular"
+				android:text="목록이 없습니다."
+				android:textColor="@color/rect_4481"
+				android:textSize="16sp"
+				android:visibility="@{vm.empty ? View.VISIBLE : View.INVISIBLE}"
+				app:layout_constraintBottom_toBottomOf="@id/recycler_tmenu_reviews"
+				app:layout_constraintEnd_toEndOf="@id/recycler_tmenu_reviews"
+				app:layout_constraintStart_toStartOf="@id/recycler_tmenu_reviews"
+				app:layout_constraintTop_toTopOf="@id/recycler_tmenu_reviews"
+				tools:ignore="HardcodedText"
+				tools:visibility="invisible" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

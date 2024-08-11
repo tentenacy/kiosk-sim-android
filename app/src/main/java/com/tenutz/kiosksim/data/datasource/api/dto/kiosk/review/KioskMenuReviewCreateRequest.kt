@@ -1,6 +1,6 @@
 ﻿package com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review
 
-data class MenuReviewCreateRequest(
+data class KioskMenuReviewCreateRequest(
     val mainCategoryCode: String,
     val middleCategoryCode: String,
     val subCategoryCode: String,

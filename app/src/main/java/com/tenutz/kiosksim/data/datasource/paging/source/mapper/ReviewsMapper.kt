@@ -1,8 +1,8 @@
 package com.tenutz.kiosksim.data.datasource.paging.source.mapper
 
 import com.tenutz.kiosksim.data.datasource.api.dto.common.PageResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.store.MenuReviewsResponse
-import com.tenutz.kiosksim.data.datasource.api.dto.store.StoreReviewsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review.KioskMenuReviewsResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review.KioskStoreReviewsResponse
 import com.tenutz.kiosksim.data.datasource.paging.entity.MenuReviews
 import com.tenutz.kiosksim.data.datasource.paging.entity.StoreReviews
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 class ReviewsMapper @Inject constructor(
 
 ) {
-    fun transform(response: PageResponse<StoreReviewsResponse>): StoreReviews {
+    fun transform(response: PageResponse<KioskStoreReviewsResponse>): StoreReviews {
         return with(response) {
             StoreReviews(
                 total = totalPages,
@@ -27,7 +27,6 @@ class ReviewsMapper @Inject constructor(
                         createdBy = it.createdBy,
                         createdAt = it.createdAt,
                         content = it.content,
-                        keyword = it.keyword,
                         level = it.level,
                         rating = it.rating,
                         sno = it.sno,
@@ -48,7 +47,7 @@ class ReviewsMapper @Inject constructor(
         }
     }
 
-    fun transform(response: PageResponse<MenuReviewsResponse>): MenuReviews {
+    fun transform(response: PageResponse<KioskMenuReviewsResponse>): MenuReviews {
         return with(response) {
             MenuReviews(
                 total = totalPages,
@@ -67,7 +66,6 @@ class ReviewsMapper @Inject constructor(
                         createdBy = it.createdBy,
                         createdAt = it.createdAt,
                         content = it.content,
-                        keyword = it.keyword,
                         level = it.level,
                         rating = it.rating,
                         sno = it.sno,
