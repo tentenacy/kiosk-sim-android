@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.tenutz.kiosksim.data.datasource.paging.entity.StoreReviews
 import com.tenutz.kiosksim.databinding.TabStoreReviewsBinding
 import com.tenutz.kiosksim.di.qualifier.UnitReference
@@ -27,12 +28,21 @@ class StoreReviewsTabFragment: BaseFragment() {
 
     val vm: StoreReviewsViewModel by viewModels()
 
+    private val adapterDataObserver = object : RecyclerView.AdapterDataObserver() {
+        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+            if (positionStart == 0) {
+                binding.recyclerTstoreReviews.scrollToPosition(0)
+            }
+        }
+    }
+
     private val adapter: StoreReviewsAdapter by lazy {
         StoreReviewsAdapter { id, item ->
             when(id) {
 
             }
         }.apply {
+            registerAdapterDataObserver(adapterDataObserver)
             addLoadStateListener { loadState ->
                 vm.empty.value =
                     loadState.source.refresh is LoadState.NotLoading && loadState.append.endOfPaginationReached && adapter.itemCount < 1
@@ -91,6 +101,7 @@ class StoreReviewsTabFragment: BaseFragment() {
     override fun onDestroyView() {
         disposable.clear()
         super.onDestroyView()
+        adapter.unregisterAdapterDataObserver(adapterDataObserver)
         _binding = null
     }
 }

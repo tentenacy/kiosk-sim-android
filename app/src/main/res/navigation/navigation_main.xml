@@ -178,5 +178,20 @@
 			tools:layout="@layout/fragment_menu_review_rating">
 
 		<argument android:name="args" app:argType="com.tenutz.kiosksim.ui.review.menu.args.ReviewMenuArgs" />
+		<action
+				android:id="@+id/action_menuReviewRatingFragment_to_menuReviewContentFragment"
+				app:destination="@id/menuReviewContentFragment"
+				app:enterAnim="@anim/from_right"
+				app:exitAnim="@anim/to_left"
+				app:popEnterAnim="@anim/from_left"
+				app:popExitAnim="@anim/to_right" />
+	</fragment>
+	<fragment
+			android:id="@+id/menuReviewContentFragment"
+			android:name="com.tenutz.kiosksim.ui.review.menu.MenuReviewContentFragment"
+			android:label="MenuReviewContentFragment"
+			tools:layout="@layout/fragment_menu_review_content">
+
+		<argument android:name="args" app:argType="com.tenutz.kiosksim.ui.review.menu.args.ReviewMenuArgs" />
 	</fragment>
 </navigation>

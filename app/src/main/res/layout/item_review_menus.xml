@@ -2,8 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools"
-		xmlns:bind="http://schemas.android.com/tools"
-		>
+		xmlns:bind="http://schemas.android.com/tools">
 
 	<data>
 
@@ -71,7 +70,7 @@
 					android:layout_height="wrap_content"
 					android:paddingStart="1dp"
 					android:textSize="16sp"
-					android:text="@{TextExtKt.getToCurrency(args.price)}"
+					android:text="@{TextExtKt.getToCurrency(args.price-args.discountedPrice)}"
 					app:layout_constraintBottom_toBottomOf="@id/text_ireview_menus_not_discounted_unit_kr"
 					app:layout_constraintEnd_toStartOf="@id/text_ireview_menus_not_discounted_unit_kr"
 					app:layout_constraintTop_toTopOf="@id/text_ireview_menus_not_discounted_unit_kr"

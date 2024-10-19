@@ -14,4 +14,8 @@ data class ErrorResponse(
 
     fun isEmpty() = code.isBlank() || status == 0 || message.isBlank()
     fun isNotEmpty() = !isEmpty()
+
+    override fun toString(): String {
+        return "[code=${code}, status=${status}, message=${message}, errors=${errors}]"
+    }
 }

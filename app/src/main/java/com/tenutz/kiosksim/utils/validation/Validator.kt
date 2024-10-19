@@ -226,10 +226,6 @@ object Validator {
         }
     }
 
-    fun validateRating(rating: Int) {
-        if(rating !in 1..5) throw RequiredInputValidationException()
-    }
-
     fun validate(onValidation: () -> Unit, onSuccess: () -> Unit, onFailure: (ValidationException) -> Unit) {
         try {
             onValidation()

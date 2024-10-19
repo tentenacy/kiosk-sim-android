@@ -6,6 +6,7 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequ
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskReviewMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review.KioskMenuReviewCreateRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.menu.*
 import io.reactivex.rxjava3.core.Single
 
@@ -105,4 +106,8 @@ interface MenuRepository {
     fun orderMenus(
         callNumber: String,
     ): Single<Result<KioskReviewMenusResponse>>
+
+    fun createMenuReview(
+        request: KioskMenuReviewCreateRequest,
+    ): Single<Result<Unit>>
 }

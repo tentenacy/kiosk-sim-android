@@ -24,5 +24,6 @@ class MenuReviewRatingViewModel @Inject constructor(
 
     fun setRating(rating: Int) {
         this.rating.value = rating
+        _reviewMenu.value?.rating = rating
     }
 }

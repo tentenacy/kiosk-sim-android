@@ -5,6 +5,7 @@ import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsDeleteRequ
 import com.tenutz.kiosksim.data.datasource.api.dto.common.OptionGroupsMappedByRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskMenusResponse
 import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.menu.KioskReviewMenusResponse
+import com.tenutz.kiosksim.data.datasource.api.dto.kiosk.review.KioskMenuReviewCreateRequest
 import com.tenutz.kiosksim.data.datasource.api.dto.menu.*
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
@@ -170,4 +171,10 @@ interface MenuApi {
         @Path("kioskCode") kioskCode: String,
         @Path("callNumber") callNumber: String,
     ): Single<KioskReviewMenusResponse>
+
+    @POST("{kioskCode}/main-menus/reviews")
+    fun createMenuReview(
+        @Path("kioskCode") kioskCode: String,
+        @Body request: KioskMenuReviewCreateRequest,
+    ): Single<Unit>
 }
